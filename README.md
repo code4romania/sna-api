@@ -1,4 +1,4 @@
-## Laravel API Boilerplate (JWT Edition)
+## SNA-API (JWT Edition)
 
 Laravel API Boilerplate is a "starter kit" you can use to build your first API in seconds. As you can easily imagine, it is built on top of the awesome Laravel Framework. This version is built on Laravel 5.4!
 

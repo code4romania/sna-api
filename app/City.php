@@ -11,8 +11,6 @@ class City extends Model
 		'county_id', 'name'
 	];
 	
-	public $timestamps = false;
-	
 	public function county()
 	{
 		return $this->belongsTo('App\County');

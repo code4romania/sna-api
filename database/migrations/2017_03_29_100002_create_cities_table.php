@@ -15,8 +15,11 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('county_id');
+            $table->integer('county_id')->unsigned();
             $table->string('name');
+            $table->timestamps();
+            
+            $table->foreign('county_id')->references('id')->on('counties');
         });
     }
 

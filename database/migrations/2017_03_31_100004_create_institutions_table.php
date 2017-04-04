@@ -13,7 +13,11 @@ class CreateInstitutionsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('institutions', function(Blueprint $table) {
+          $table->increments('id');
+          $table->string('name');
+          $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class CreateInstitutionsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('institutions');
     }
 }

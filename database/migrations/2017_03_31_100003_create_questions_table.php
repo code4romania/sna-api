@@ -15,14 +15,14 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumText('text');
+            $table->mediumText('question_text');
             $table->integer('required')->nullable();
             $table->integer('type');
             $table->string('unit_of_measurement', 100);
             $table->integer('max_length');
             $table->integer('answer_is_numeric')->nullable();
             $table->integer('chart')->nullable();
-            $table->integer('step');
+            $table->integer('question_step');
             $table->timestamps();
         });
     }

@@ -19,6 +19,15 @@ class InstitutionsTableSeeder extends Seeder
         foreach ($institutions as $institution) {
           $institutionDB = new Institution();
           $institutionDB->name = $institution;
+          if (strpos($institution, 'Primaria') !== false) {
+            $institutionDB->type = 'county';
+          }
+          elseif (strpos($institution, 'Ministerul ') !== false || strpos($institution, 'Ministrul ') !== false) { //see id 107 @judete
+            $institutionDB->type = 'minister';
+          }
+          else {
+            $institutionDB->type = 'anticoruption';
+          };
           $institutionDB->save();
         }
     }
@@ -31,7 +40,7 @@ class InstitutionsTableSeeder extends Seeder
       }
       $cities = City::all();
       foreach ($cities as $city) {
-        array_push($institutions, "Primaria " . $city->name);
+        array_push($institutions, 'Primaria ' . $city->name);
       }
       return $institutions;
     }

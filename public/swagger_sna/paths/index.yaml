@@ -1,0 +1,57 @@
+/questions:
+  get:
+    summary: Get all questions
+    parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+    description: |
+      The list of questions to answer for the institution.
+    tags:
+      - Questions
+    responses:
+      200:
+        description: An array of questions
+        schema:
+          type: array
+          items:
+            $ref: ../definitions/Question.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
+/answer:
+  post:
+    summary: Post an answer for a question
+    parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+      - name: questionId
+        in: query
+        description: The id of the question the answer is for.
+        type: integer
+        required: true
+      - name: answer
+        in: query
+        description: The answer for the question
+        type: string
+        required: true
+        
+    description: |
+      Posts an answer to a question
+    tags:
+      - Answer
+    responses:
+      200:
+        description: Status ok
+        schema:
+          $ref: ../definitions/StatusOK.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml

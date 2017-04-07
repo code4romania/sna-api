@@ -1,0 +1,146 @@
+{
+  "swagger": "2.0",
+  "host": "sna.ro",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/api/v1",
+  "info": {
+    "title": "SNA API",
+    "description": "SNA project API",
+    "version": "1.0.0"
+  },
+  "definitions": {
+    "Question": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "id of the question"
+        },
+        "text": {
+          "type": "string",
+          "description": "text of the question."
+        },
+        "answerType": {
+          "type": "string",
+          "description": "Description of answer type."
+        },
+        "maxLength": {
+          "type": "integer",
+          "description": "Maximum length for the answer"
+        },
+        "step": {
+          "type": "integer",
+          "description": "Step for the question."
+        }
+      }
+    },
+    "StatusOK": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/questions": {
+      "get": {
+        "summary": "Get all questions",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Token",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "The list of questions to answer for the institution.\n",
+        "tags": [
+          "Questions"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of questions",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Question"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/answer": {
+      "post": {
+        "summary": "Post an answer for a question",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Token",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "questionId",
+            "in": "query",
+            "description": "The id of the question the answer is for.",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "answer",
+            "in": "query",
+            "description": "The answer for the question",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "Posts an answer to a question\n",
+        "tags": [
+          "Answer"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status ok",
+            "schema": {
+              "$ref": "#/definitions/StatusOK"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  }
+}

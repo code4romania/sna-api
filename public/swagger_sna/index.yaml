@@ -1,0 +1,18 @@
+#RUN sudo swagger bundle -o swagger.json index.yaml to generate
+#you need swagger-cli installed
+#https://www.npmjs.com/package/swagger-cli
+
+swagger: '2.0'
+# the domain of the service
+host: sna.ro
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /api/v1
+info:
+  $ref: ./info/index.yaml
+definitions:
+  $ref: ./definitions/index.yaml
+paths:
+  $ref: ./paths/index.yaml

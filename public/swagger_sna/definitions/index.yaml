@@ -1,0 +1,6 @@
+Question:
+  $ref: ./Question.yaml
+StatusOK:
+  $ref: ./StatusOK.yaml
+Error:
+  $ref: ./Error.yaml

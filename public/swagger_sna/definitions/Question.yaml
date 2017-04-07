@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: id of the question
+  text:
+    type: string
+    description: text of the question.
+  answerType:
+    type: string
+    description: Description of answer type.
+  maxLength:
+    type: integer
+    description: Maximum length for the answer
+  step:
+    type: integer
+    description: Step for the question.

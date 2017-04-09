@@ -1,3 +1,56 @@
+/institutions/{type}:
+  get:
+    summary: Get institutions by type
+    parameters:
+      - name: type
+        in: path
+        description: Type of the institution - ministry, independent, local
+        type: string
+        required: true
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+    description: |
+      The list of institutions.
+    tags:
+      - Institutions
+    responses:
+      200:
+        description: An array of institutions
+        schema:
+          type: array
+          items:
+            $ref: ../definitions/Institution.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
+/counties:
+  get:
+    summary: Get all counties
+    parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+    description: |
+      The list of counties.
+    tags:
+      - Counties
+    responses:
+      200:
+        description: An array of counties
+        schema:
+          type: array
+          items:
+            $ref: ../definitions/County.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
 /questions:
   get:
     summary: Get all questions

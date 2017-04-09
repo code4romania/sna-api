@@ -11,56 +11,132 @@
     "version": "1.0.0"
   },
   "definitions": {
+    "County": {
+      "$ref": "#/paths/~1counties/get/responses/200/schema/items"
+    },
     "Question": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "id of the question"
-        },
-        "text": {
-          "type": "string",
-          "description": "text of the question."
-        },
-        "answerType": {
-          "type": "string",
-          "description": "Description of answer type."
-        },
-        "maxLength": {
-          "type": "integer",
-          "description": "Maximum length for the answer"
-        },
-        "step": {
-          "type": "integer",
-          "description": "Step for the question."
-        }
-      }
+      "$ref": "#/paths/~1questions/get/responses/200/schema/items"
     },
     "StatusOK": {
-      "type": "object",
-      "properties": {
-        "status": {
-          "type": "string"
-        }
-      }
+      "$ref": "#/paths/~1answer/post/responses/200/schema"
     },
     "Error": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        },
-        "fields": {
-          "type": "string"
-        }
-      }
+      "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/default/schema"
+    },
+    "Institution": {
+      "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/200/schema/items"
     }
   },
   "paths": {
+    "/institutions/{type}": {
+      "get": {
+        "summary": "Get institutions by type",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type of the institution - ministry, independent, local",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Token",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "The list of institutions.\n",
+        "tags": [
+          "Institutions"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of institutions",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "id of the institution"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the institution."
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/counties": {
+      "get": {
+        "summary": "Get all counties",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Token",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "The list of counties.\n",
+        "tags": [
+          "Counties"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of counties",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "id of the county"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the question."
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/default/schema"
+            }
+          }
+        }
+      }
+    },
     "/questions": {
       "get": {
         "summary": "Get all questions",
@@ -83,14 +159,36 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Question"
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "id of the question"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "text of the question."
+                  },
+                  "answerType": {
+                    "type": "string",
+                    "description": "Description of answer type."
+                  },
+                  "maxLength": {
+                    "type": "integer",
+                    "description": "Maximum length for the answer"
+                  },
+                  "step": {
+                    "type": "integer",
+                    "description": "Step for the question."
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/default/schema"
             }
           }
         }
@@ -130,13 +228,18 @@
           "200": {
             "description": "Status ok",
             "schema": {
-              "$ref": "#/definitions/StatusOK"
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/default/schema"
             }
           }
         }

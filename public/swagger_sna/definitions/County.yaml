@@ -1,0 +1,8 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: id of the county
+  name:
+    type: string
+    description: Name of the question.

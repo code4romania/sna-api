@@ -1,6 +1,10 @@
+County:
+  $ref: ./County.yaml
 Question:
   $ref: ./Question.yaml
 StatusOK:
   $ref: ./StatusOK.yaml
 Error:
   $ref: ./Error.yaml
+Institution:
+  $ref: ./Institution.yaml

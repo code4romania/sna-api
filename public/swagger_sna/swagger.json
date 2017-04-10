@@ -12,19 +12,78 @@
   },
   "definitions": {
     "County": {
-      "$ref": "#/paths/~1counties/get/responses/200/schema/items"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "id of the county"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the question."
+        }
+      }
     },
     "Question": {
-      "$ref": "#/paths/~1questions/get/responses/200/schema/items"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "id of the question"
+        },
+        "text": {
+          "type": "string",
+          "description": "text of the question."
+        },
+        "answerType": {
+          "type": "string",
+          "description": "Description of answer type."
+        },
+        "maxLength": {
+          "type": "integer",
+          "description": "Maximum length for the answer"
+        },
+        "step": {
+          "type": "integer",
+          "description": "Step for the question."
+        }
+      }
     },
     "StatusOK": {
-      "$ref": "#/paths/~1answer/post/responses/200/schema"
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
     },
     "Error": {
-      "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/default/schema"
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "string"
+        }
+      }
     },
     "Institution": {
-      "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/200/schema/items"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "id of the institution"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the institution."
+        }
+      }
     }
   },
   "paths": {
@@ -57,36 +116,14 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "integer",
-                    "description": "id of the institution"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the institution."
-                  }
-                }
+                "$ref": "#/definitions/Institution"
               }
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "fields": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/Error"
             }
           }
         }
@@ -114,24 +151,14 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "integer",
-                    "description": "id of the county"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the question."
-                  }
-                }
+                "$ref": "#/definitions/County"
               }
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/default/schema"
+              "$ref": "#/definitions/Error"
             }
           }
         }
@@ -159,36 +186,14 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "integer",
-                    "description": "id of the question"
-                  },
-                  "text": {
-                    "type": "string",
-                    "description": "text of the question."
-                  },
-                  "answerType": {
-                    "type": "string",
-                    "description": "Description of answer type."
-                  },
-                  "maxLength": {
-                    "type": "integer",
-                    "description": "Maximum length for the answer"
-                  },
-                  "step": {
-                    "type": "integer",
-                    "description": "Step for the question."
-                  }
-                }
+                "$ref": "#/definitions/Question"
               }
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/default/schema"
+              "$ref": "#/definitions/Error"
             }
           }
         }
@@ -228,18 +233,13 @@
           "200": {
             "description": "Status ok",
             "schema": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/StatusOK"
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "$ref": "#/paths/~1institutions~1%7Btype%7D/get/responses/default/schema"
+              "$ref": "#/definitions/Error"
             }
           }
         }

@@ -75,6 +75,7 @@ window.onload = function() {
   const ui = SwaggerUIBundle({
     url: "http://"+window.location.hostname+"/swagger_sna/swagger.json",
     dom_id: '#swagger-ui',
+    validatorUrl: null,
     presets: [
       SwaggerUIBundle.presets.apis,
       // yay ES6 modules ↘

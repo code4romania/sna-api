@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Institution extends Model
 {
-    protected $fillable = ['name', 'type'];
+    protected $fillable = ['county_id', 'name', 'type'];
 }

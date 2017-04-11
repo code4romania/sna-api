@@ -15,9 +15,12 @@ class CreateInstitutionsTable extends Migration
     {
         Schema::create('institutions', function(Blueprint $table) {
           $table->increments('id');
+          $table->integer('county_id')->unsigned();
           $table->string('name');
-          $table->enum('type', ['minister', 'anticoruption', 'county']);
+          $table->enum('type', ['ministry', 'anticorruption', 'county']);
           $table->timestamps();
+          
+          $table->foreign('county_id')->references('id')->on('counties');
         });
     }
 

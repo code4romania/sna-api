@@ -75,6 +75,35 @@
         description: Unexpected error
         schema:
           $ref: ../definitions/Error.yaml
+/questions/{step}:
+  get:
+    summary: Get all questions corresponding to one specific step
+    parameters:
+      - name: step
+        in: path
+        description: Step number
+        type: integer
+        required: true
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+    description: |
+      The list of questions to answer corresponding to one specific step
+    tags:
+      - questions
+    responses:
+      200:
+        description: An array of questions
+        schema:
+          type: array
+          items:
+            $ref: ../definitions/Question.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
 /answer:
   post:
     summary: Post an answer for a question
@@ -94,7 +123,7 @@
         description: The answer for the question
         type: string
         required: true
-        
+
     description: |
       Posts an answer to a question
     tags:

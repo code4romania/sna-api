@@ -17,10 +17,11 @@ class CreateInstitutionsTable extends Migration
           $table->increments('id');
           $table->integer('county_id')->unsigned();
           $table->string('name');
-          $table->enum('type', ['ministry', 'anticorruption', 'county']);
+          $table->integer('institution_type_id')->unsigned();
           $table->timestamps();
-          
+
           $table->foreign('county_id')->references('id')->on('counties');
+          $table->foreign('institution_type_id')->references('id')->on('institution_types');
         });
     }
 

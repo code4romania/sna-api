@@ -4,7 +4,7 @@
     parameters:
       - name: type
         in: path
-        description: Type of the institution - ministry, independent, local
+        description: Type of the institution - ministry, anticorruption, county
         type: string
         required: true
       - name: Authorization

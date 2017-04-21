@@ -17,7 +17,8 @@ $api->version('v1', function (Router $api) {
     $api->group(['middleware' => 'jwt.auth', 'prefix' => 'v1/'], function(Router $api) {
         $api->get('questions', 'App\\Api\\V1\\Controllers\\QuestionsController@listAll');
         $api->get('counties', 'App\\Api\\V1\\Controllers\\CountiesController@listAll');
-        
+        $api->get('institutions/{type}', 'App\\Api\\V1\\Controllers\\InstitutionsController@getByType');
+
         $api->get('protected', function() {
             return response()->json([
                 'message' => 'Access to this item is only for authenticated user. Provide a token in your request!'

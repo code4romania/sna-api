@@ -16,6 +16,7 @@ $api->version('v1', function (Router $api) {
 
     $api->group(['middleware' => 'jwt.auth', 'prefix' => 'v1/'], function(Router $api) {
         $api->get('questions', 'App\\Api\\V1\\Controllers\\QuestionsController@listAll');
+        $api->get('questions/{step}', 'App\\Api\\V1\\Controllers\\QuestionsController@getByStep');
         $api->get('counties', 'App\\Api\\V1\\Controllers\\CountiesController@listAll');
         $api->get('institutions/{type}', 'App\\Api\\V1\\Controllers\\InstitutionsController@getByType');
 

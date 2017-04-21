@@ -10,10 +10,10 @@ class CountiesController extends Controller
 {
     public function listAll(CountyTransformer $transformer)
     {
-    $county = County::get();
+        $county = County::get();
 
-    return response()->json([
-            'data' => $transformer->transformCollection($county->all())
-    ], 200);
+        return response()->json([
+                'data' => $transformer->transformCollection($county->all())
+        ], 200);
     }
 }

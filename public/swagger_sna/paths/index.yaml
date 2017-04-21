@@ -4,7 +4,7 @@
     parameters:
       - name: type
         in: path
-        description: Type of the institution - ministry, anticorruption, county
+        description: Type of the institution - anticorruption, ministry or county
         type: string
         required: true
       - name: Authorization
@@ -23,6 +23,8 @@
           type: array
           items:
             $ref: ../definitions/Institution.yaml
+      400:
+        description: Bad request. {type} should be anticorruption, ministry or county
       default:
         description: Unexpected error
         schema:
@@ -81,7 +83,7 @@
     parameters:
       - name: step
         in: path
-        description: Step number
+        description: Step number, between 0 and 12 inclusive
         type: integer
         required: true
       - name: Authorization
@@ -100,6 +102,8 @@
           type: array
           items:
             $ref: ../definitions/Question.yaml
+      400:
+        description: Bad request. {step} should be an integer between 0 and 12 inclusive
       default:
         description: Unexpected error
         schema:

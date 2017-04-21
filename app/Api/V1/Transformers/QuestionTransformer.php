@@ -10,10 +10,10 @@ class QuestionTransformer extends Transformer
     {
         return [
                 'id' => $question->id,
-                'text' => $question->text,
+                'text' => $question->question_text,
                 'answerType' => $question->answer_is_numeric==1?'integer':'string',
                 'maxLength' => $question->max_length,
-                'step' => $question->step
+                'step' => $question->question_step
         ];
     }
 }

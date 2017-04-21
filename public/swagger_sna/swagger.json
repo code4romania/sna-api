@@ -35,7 +35,7 @@
           {
             "name": "type",
             "in": "path",
-            "description": "Type of the institution - ministry, anticorruption, county",
+            "description": "Type of the institution - anticorruption, ministry or county",
             "type": "string",
             "required": true
           },
@@ -74,6 +74,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request. {type} should be anticorruption, ministry or county"
           },
           "default": {
             "description": "Unexpected error",
@@ -205,7 +208,7 @@
           {
             "name": "step",
             "in": "path",
-            "description": "Step number",
+            "description": "Step number, between 0 and 12 inclusive",
             "type": "integer",
             "required": true
           },
@@ -230,6 +233,9 @@
                 "$ref": "#/paths/~1questions/get/responses/200/schema/items"
               }
             }
+          },
+          "400": {
+            "description": "Bad request. {step} should be an integer between 0 and 12 inclusive"
           },
           "default": {
             "description": "Unexpected error",

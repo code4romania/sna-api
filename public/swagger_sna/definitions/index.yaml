@@ -8,3 +8,5 @@ Error:
   $ref: ./Error.yaml
 Institution:
   $ref: ./Institution.yaml
+Answer:
+  $ref: ./Answer.yaml

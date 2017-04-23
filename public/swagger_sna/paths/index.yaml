@@ -108,6 +108,45 @@
         description: Unexpected error
         schema:
           $ref: ../definitions/Error.yaml
+/answer/{institutionId}/{questionId}:
+  get:
+    summary: Get an institution's answer to a question.
+    parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+      - name: institutionId
+        in: path
+        description: The id of the institution or county the answer is for.
+        type: integer
+        required: true
+      - name: questionId
+        in: path
+        description: The in of the question the answer is for.
+        type: integer
+        required: true
+      - name: year
+        in: query
+        description: The year the answer is for. If no year is set then the current one is used.
+        type: integer
+        required: false
+
+    description: |
+      Gets the answer for a question and institution for a specific year.
+    tags:
+      - Answer
+    responses:
+      200:
+        description: Answer
+        schema:
+          $ref: ../definitions/Answer.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
+
 /answer:
   post:
     summary: Post an answer for a question

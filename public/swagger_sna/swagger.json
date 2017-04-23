@@ -88,6 +88,15 @@
           "description": "County where the institution belongs"
         }
       }
+    },
+    "Answer": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "description": "value of the answer"
+        }
+      }
     }
   },
   "paths": {
@@ -345,6 +354,77 @@
           },
           "400": {
             "description": "Bad request. {step} should be an integer between 0 and 12 inclusive"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/answer/{institutionId}/{questionId}": {
+      "get": {
+        "summary": "Get an institution's answer to a question.",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Token",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "institutionId",
+            "in": "path",
+            "description": "The id of the institution or county the answer is for.",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "questionId",
+            "in": "path",
+            "description": "The in of the question the answer is for.",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "The year the answer is for. If no year is set then the current one is used.",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "description": "Gets the answer for a question and institution for a specific year.\n",
+        "tags": [
+          "Answer"
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer",
+                  "description": "value of the answer"
+                }
+              }
+            }
           },
           "default": {
             "description": "Unexpected error",

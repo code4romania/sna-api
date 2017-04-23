@@ -1,5 +1,8 @@
 type: object
 properties:
+  questionId:
+    type: integer
+    description: id of the question the answer is for
   value:
     type: integer
     description: value of the answer

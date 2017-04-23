@@ -94,7 +94,7 @@
     description: |
       The list of questions to answer corresponding to one specific step
     tags:
-      - questions
+      - Questions
     responses:
       200:
         description: An array of questions
@@ -136,7 +136,7 @@
     description: |
       Gets the answer for a question and institution for a specific year.
     tags:
-      - Answer
+      - Answers
     responses:
       200:
         description: Answer
@@ -146,7 +146,46 @@
         description: Unexpected error
         schema:
           $ref: ../definitions/Error.yaml
+/answers/{institutionId}/{step}:
+  get:
+    summary: Get an institution's answer to all the questions in a step.
+    parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+      - name: institutionId
+        in: path
+        description: The id of the institution or county the answers are for.
+        type: integer
+        required: true
+      - name: step
+        in: path
+        description: The number of the step the answers are for.
+        type: integer
+        required: true
+      - name: year
+        in: query
+        description: The year the answers are for. If no year is set then the current one is used.
+        type: integer
+        required: false
 
+    description: |
+      Gets the answers for the questions and institution for a specific year and step.
+    tags:
+      - Answers
+    responses:
+      200:
+        description: Answers
+        schema:
+          type: array
+          items:
+            $ref: ../definitions/Answer.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
 /answer:
   post:
     summary: Post an answer for a question
@@ -170,7 +209,7 @@
     description: |
       Posts an answer to a question
     tags:
-      - Answer
+      - Answers
     responses:
       200:
         description: Status ok

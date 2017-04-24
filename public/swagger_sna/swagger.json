@@ -308,7 +308,7 @@
           {
             "name": "step",
             "in": "path",
-            "description": "Step number, between 0 and 12 inclusive",
+            "description": "Currently, the questions are divided in 12 steps. Requests with {step} gt 12 will return an empty array",
             "type": "integer",
             "required": true
           },
@@ -357,7 +357,7 @@
             }
           },
           "400": {
-            "description": "Bad request. {step} should be an integer between 0 and 12 inclusive"
+            "description": "Bad request. {step} should be a positive integer"
           },
           "default": {
             "description": "Unexpected error",

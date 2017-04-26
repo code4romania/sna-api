@@ -1,0 +1,17 @@
+type: object
+properties:
+  institutionId:
+    type: integer
+    description: id of the institution
+  name:
+    type: string
+    description: name of the institution
+  employees:
+    type: array
+    items:
+      $ref: YearValue.yaml
+  answers:
+    desription: step or category of indicators 
+    type: array
+    items:
+      $ref: Step.yaml

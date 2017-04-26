@@ -101,6 +101,151 @@
           "description": "value of the answer"
         }
       }
+    },
+    "AnswersInstitution": {
+      "type": "object",
+      "properties": {
+        "institutionId": {
+          "type": "integer",
+          "description": "id of the institution"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of the institution"
+        },
+        "employees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "integer",
+                "description": "year of the value"
+              },
+              "value": {
+                "type": "integer",
+                "description": "numeric representation"
+              }
+            }
+          }
+        },
+        "answers": {
+          "desription": "step or category of indicators",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "stepId": {
+                "type": "integer",
+                "description": "id of step/category"
+              },
+              "indicators": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "indicatorId": {
+                      "type": "integer",
+                      "description": "id of indicator"
+                    },
+                    "values": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "year": {
+                            "type": "integer",
+                            "description": "year of the value"
+                          },
+                          "value": {
+                            "type": "integer",
+                            "description": "numeric representation"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Indicator": {
+      "type": "object",
+      "properties": {
+        "indicatorId": {
+          "type": "integer",
+          "description": "id of indicator"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "integer",
+                "description": "year of the value"
+              },
+              "value": {
+                "type": "integer",
+                "description": "numeric representation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Step": {
+      "type": "object",
+      "properties": {
+        "stepId": {
+          "type": "integer",
+          "description": "id of step/category"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "indicatorId": {
+                "type": "integer",
+                "description": "id of indicator"
+              },
+              "values": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "year": {
+                      "type": "integer",
+                      "description": "year of the value"
+                    },
+                    "value": {
+                      "type": "integer",
+                      "description": "numeric representation"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "YearValue": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "integer",
+          "description": "year of the value"
+        },
+        "value": {
+          "type": "integer",
+          "description": "numeric representation"
+        }
+      }
     }
   },
   "paths": {
@@ -380,7 +525,7 @@
         }
       }
     },
-    "/answer/{institutionId}/{questionId}": {
+    "/answers/{institutionId}/{questionId}": {
       "get": {
         "summary": "Get an institution's answer to a question.",
         "parameters": [
@@ -507,6 +652,127 @@
                   "value": {
                     "type": "integer",
                     "description": "value of the answer"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/answers/{institutionType}": {
+      "get": {
+        "summary": "Get all institutions answers to all the questions.",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Token",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "institutionType",
+            "in": "path",
+            "description": "Type of the institution - anticorruption, ministry or county",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "Gets the answers for all the institutions, steps and years.\n",
+        "tags": [
+          "Answers"
+        ],
+        "responses": {
+          "200": {
+            "description": "Answers institutions",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "institutionId": {
+                    "type": "integer",
+                    "description": "id of the institution"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name of the institution"
+                  },
+                  "employees": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "year": {
+                          "type": "integer",
+                          "description": "year of the value"
+                        },
+                        "value": {
+                          "type": "integer",
+                          "description": "numeric representation"
+                        }
+                      }
+                    }
+                  },
+                  "answers": {
+                    "desription": "step or category of indicators",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "stepId": {
+                          "type": "integer",
+                          "description": "id of step/category"
+                        },
+                        "indicators": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "indicatorId": {
+                                "type": "integer",
+                                "description": "id of indicator"
+                              },
+                              "values": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "year": {
+                                      "type": "integer",
+                                      "description": "year of the value"
+                                    },
+                                    "value": {
+                                      "type": "integer",
+                                      "description": "numeric representation"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }

@@ -1,0 +1,8 @@
+type: object
+properties:
+  year:
+    type: integer
+    description: year of the value
+  value:
+    type: integer
+    description: numeric representation

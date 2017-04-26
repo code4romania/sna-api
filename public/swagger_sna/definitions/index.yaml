@@ -10,3 +10,11 @@ Institution:
   $ref: ./Institution.yaml
 Answer:
   $ref: ./Answer.yaml
+AnswersInstitution:
+  $ref: ./AnswersInstitution.yaml
+Indicator:
+  $ref: ./Indicator.yaml
+Step:
+  $ref: ./Step.yaml
+YearValue:
+  $ref: ./YearValue.yaml

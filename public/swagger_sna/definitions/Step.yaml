@@ -1,0 +1,9 @@
+type: object
+properties:
+  stepId:
+    type: integer
+    description: id of step/category
+  indicators:
+    type: array
+    items:
+      $ref: Indicator.yaml

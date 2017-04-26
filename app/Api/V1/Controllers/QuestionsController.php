@@ -18,14 +18,16 @@ class QuestionsController extends Controller
     }
 
     public function getByStep($step, QuestionTransformer $transformer) {
-        if ($step >= 0 && $step <= 12) {
+        if (filter_var($step, FILTER_VALIDATE_INT) && (int)$step >= 0 ) {
             $question = Question::where('question_step', $step)->get();
 
             return response()->json([
                     'data' => $transformer->transformCollection($question->all())
             ], 200);
         } else {
-            return response()->json(['message' => '/{step} should have a value between 0 and 12 inclusive'], 400);
+            return response()->json([
+                'message' => '{step} should be a positive integer'
+            ], 400);
         }
     }
 }

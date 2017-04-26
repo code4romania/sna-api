@@ -130,7 +130,7 @@
           }
         },
         "answers": {
-          "desription": "step or category of indicators",
+          "description": "step or category of indicators",
           "type": "array",
           "items": {
             "type": "object",
@@ -734,7 +734,7 @@
                     }
                   },
                   "answers": {
-                    "desription": "step or category of indicators",
+                    "description": "step or category of indicators",
                     "type": "array",
                     "items": {
                       "type": "object",

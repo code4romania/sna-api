@@ -11,7 +11,7 @@ properties:
     items:
       $ref: YearValue.yaml
   answers:
-    desription: step or category of indicators 
+    description: step or category of indicators 
     type: array
     items:
       $ref: Step.yaml

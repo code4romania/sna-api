@@ -53,6 +53,30 @@
         description: Unexpected error
         schema:
           $ref: ../definitions/Error.yaml
+/indicators:
+  get:
+    summary: Get all indicators
+    parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+    description: |
+      The list of indicators
+    tags:
+      - Indicators
+    responses:
+      200:
+        description: An array of indicators
+        schema:
+          type: array
+          items:
+            $ref: ../definitions/Indicator.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
 /questions:
   get:
     summary: Get all questions
@@ -186,36 +210,36 @@
         description: Unexpected error
         schema:
           $ref: ../definitions/Error.yaml
-/answer:
-  post:
-    summary: Post an answer for a question
-    parameters:
-      - name: Authorization
-        in: header
-        description: JWT Token
-        type: string
-        required: true
-      - name: questionId
-        in: query
-        description: The id of the question the answer is for.
-        type: integer
-        required: true
-      - name: answer
-        in: query
-        description: The answer for the question
-        type: string
-        required: true
+# /answer:
+#   post:
+#     summary: Post an answer for a question
+#     parameters:
+#       - name: Authorization
+#         in: header
+#         description: JWT Token
+#         type: string
+#         required: true
+#       - name: questionId
+#         in: query
+#         description: The id of the question the answer is for.
+#         type: integer
+#         required: true
+#       - name: answer
+#         in: query
+#         description: The answer for the question
+#         type: string
+#         required: true
 
-    description: |
-      Posts an answer to a question
-    tags:
-      - Answers
-    responses:
-      200:
-        description: Status ok
-        schema:
-          $ref: ../definitions/StatusOK.yaml
-      default:
-        description: Unexpected error
-        schema:
-          $ref: ../definitions/Error.yaml
+#     description: |
+#       Posts an answer to a question
+#     tags:
+#       - Answers
+#     responses:
+#       200:
+#         description: Status ok
+#         schema:
+#           $ref: ../definitions/StatusOK.yaml
+#       default:
+#         description: Unexpected error
+#         schema:
+#           $ref: ../definitions/Error.yaml

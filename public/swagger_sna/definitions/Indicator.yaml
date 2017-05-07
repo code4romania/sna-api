@@ -1,0 +1,8 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: id of the indicator
+  name:
+    type: string
+    description: name of the indicator

@@ -14,4 +14,4 @@ properties:
     description: Maximum length for the answer
   step:
     type: integer
-    description: Step for the question.
+    description: Step for the question. (it corresponds to id in Indicator)

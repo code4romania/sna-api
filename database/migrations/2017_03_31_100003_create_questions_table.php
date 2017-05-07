@@ -22,8 +22,10 @@ class CreateQuestionsTable extends Migration
             $table->integer('max_length');
             $table->integer('answer_is_numeric')->nullable();
             $table->integer('chart')->nullable();
-            $table->integer('question_step');
+            $table->integer('question_step')->unsigned();
             $table->timestamps();
+
+            $table->foreign('question_step')->references('id')->on('indicators');
         });
     }
 

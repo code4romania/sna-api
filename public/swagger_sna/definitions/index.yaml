@@ -1,5 +1,7 @@
 County:
   $ref: ./County.yaml
+Indicator:
+  $ref: ./Indicator.yaml
 Question:
   $ref: ./Question.yaml
 StatusOK:

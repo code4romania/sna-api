@@ -24,6 +24,19 @@
         }
       }
     },
+    "Indicator": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "id of the indicator"
+        },
+        "name": {
+          "type": "string",
+          "description": "name of the indicator"
+        }
+      }
+    },
     "Question": {
       "type": "object",
       "properties": {
@@ -45,7 +58,7 @@
         },
         "step": {
           "type": "integer",
-          "description": "Step for the question."
+          "description": "Step for the question. (it corresponds to id in Indicator)"
         }
       }
     },
@@ -232,6 +245,63 @@
         }
       }
     },
+    "/indicators": {
+      "get": {
+        "summary": "Get all indicators",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Token",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "The list of indicators\n",
+        "tags": [
+          "Indicators"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of indicators",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "id of the indicator"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name of the indicator"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/questions": {
       "get": {
         "summary": "Get all questions",
@@ -274,7 +344,7 @@
                   },
                   "step": {
                     "type": "integer",
-                    "description": "Step for the question."
+                    "description": "Step for the question. (it corresponds to id in Indicator)"
                   }
                 }
               }
@@ -350,7 +420,7 @@
                   },
                   "step": {
                     "type": "integer",
-                    "description": "Step for the question."
+                    "description": "Step for the question. (it corresponds to id in Indicator)"
                   }
                 }
               }
@@ -508,69 +578,6 @@
                     "type": "integer",
                     "description": "value of the answer"
                   }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "fields": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/answer": {
-      "post": {
-        "summary": "Post an answer for a question",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "JWT Token",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "questionId",
-            "in": "query",
-            "description": "The id of the question the answer is for.",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "answer",
-            "in": "query",
-            "description": "The answer for the question",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "description": "Posts an answer to a question\n",
-        "tags": [
-          "Answers"
-        ],
-        "responses": {
-          "200": {
-            "description": "Status ok",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "string"
                 }
               }
             }

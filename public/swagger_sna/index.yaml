@@ -1,4 +1,4 @@
-#RUN sudo swagger bundle -o swagger.json index.yaml to generate
+#RUN sudo swagger bundle -r -o swagger.json index.yaml to generate
 #you need swagger-cli installed
 #https://www.npmjs.com/package/swagger-cli
 

@@ -19,10 +19,6 @@ class AnswersTableSeeder extends Seeder
         $institutions = Institution::all();
         foreach ($institutions as $institution) {
             foreach ($answers as $answer) {
-                //$answer[4] - is numeric
-                //$answer[6] - min/str
-                //$answer[7] - max
-                //$answer[0] - id
                 $answerDB = new Answer();
                 $answerDB->question_id = $answer[0];
                 $answerDB->institution_id = $institution->id;

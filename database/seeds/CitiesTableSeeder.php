@@ -15,14 +15,14 @@ class CitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        $citites = $this->getCities();
+        $cities = $this->getCities();
         $counties = CsvHandler::convertToArray('resources/files/county/county.csv');
 
         $currentCity = '';
         $index = 0;
 
-        if ($citites) {
-            foreach ($citites as $key => $city) {
+        if ($cities) {
+            foreach ($cities as $key => $city) {
                 if ($currentCity != $city['name'] && strlen(trim($city['countyCode'])) > 0) {
                     $currentCity = $city['name'];
                     $index++;

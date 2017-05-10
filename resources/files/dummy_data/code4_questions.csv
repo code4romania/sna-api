@@ -1,0 +1,143 @@
+id,question_text,unit_of_measurement,max_length,answer_is_numeric,question_step,MIN,MAX
+1,Numele instituției,,0,NULL,0,Institutie,
+2,Este instituţie subordonată,,0,NULL,0,Nu stiu,
+3,Numele instituției titular,,0,NULL,0,Titular,
+4,Adresă instituţie,,0,NULL,0,Adresa,
+5,Adresa de e-mail a instituţiei şi a persoanei responsabile cu implementarea  strategiei la nivelul instituţiei,,0,NULL,0,mail@mail.com,
+6,Telefon instituţie,,0,NULL,0,256123123,
+7,Numărul de angajaţi ai instituţiei,,0,1,0,5,50
+8,Categoriile profesionale ale angajaților,,0,NULL,0,Categorii profesionale,
+9,Acte normative care reglementează activităţile instituţiei,,0,NULL,0,"Multe acte normative nom, nom",
+10,Care este numărul de sesizări privind încălcările normelor?,,0,1,1,2,50
+11,Care este numărul de sesizări în curs de soluţionare?,,0,1,1,2,50
+12,Care este numărul de sesizări soluţionate?,,0,1,1,2,50
+13,Care este durata procedurilor?,luni,0,1,1,2,200
+14,Care este numărul de decizii prin care s-a confirmat încălcarea normei?,,0,1,1,2,50
+15,Care este numărul de măsuri dispuse?,,0,1,1,2,10
+16,"Prezentați, pe scurt, tipurile măsurilor dispuse",,0,NULL,1,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
+17,Care este numărul de decizii ale comisiei anulate sau modificate în instanţă?,,0,1,1,2,10
+18,Gradul de cunoaştere de către angajaţi a normelor,%,0,1,1,0,100
+19,Care este numărul de activităţi de formare privind normele de conduită?,,0,1,1,2,20
+20,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare  profesională?,,0,1,1,5,50
+21,Care este numărul de măsuri administrative adoptate pentru înlăturarea cauzelor sau  circumstanţelor care au favorizat încălcarea normelor?,,0,1,1,2,10
+22,Care este numărul persoane per instituţie care au săvârşit abateri disciplinare?,,0,1,1,5,50
+23,Care este numărul de persoane care au săvârşit în mod repetat abateri de la normele  respective?,,0,1,1,5,50
+24,Care este numărul de persoane care au obligaţia depunerii declaraţiei de avere? ,,0,1,2,5,50
+25,Care este numărul de persoane care nu au depus în termen declaraţii de avere? ,,0,1,2,5,50
+26,Care este numărul de persoane care nu au depus declaraţii de avere?,,0,1,2,5,50
+27,Care este numărul de sesizări ale ANI? ,,0,1,2,5,50
+28,Care este numărul de decizii ANI ca urmare a sesizărilor transmise de instituţie? ,,0,1,2,2,10
+29,Care este numărul de decizii ale ANI puse în aplicare? ,,0,1,2,2,10
+30,Care este numărul de hotărâri ale instanţelor de judecată ca urmare a sesizărilor ANI?,,0,1,2,2,10
+31,Care este numărul de măsuri administrative adoptate pentru înlăturarea cauzelor sau circumstanţelor care au favorizat încălcarea normelor privind declararea averilor? ,,0,1,2,2,10
+32,Care este numărul de consultaţii oferite de persoanele responsabile pentru implementarea prevederilor legale privind declaraţiile de avere şi declaraţiile de interese ? ,,0,1,2,2,10
+33,Care este gradul de cunoaştere de către angajaţi a normelor privind declararea averilor? ,%,0,1,2,0,100
+34,Care este numărul de activităţi de formare privind declaraţiile de avere? ,,0,1,2,2,10
+35,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare profesională? ,,0,1,2,5,50
+36,Care este numărul de cadouri primite şi înregistrate în registru? ,,0,1,3,0,50
+37,Care este valoarea fiecărui cadou primit? ,Lei,0,1,3,2,1000
+38,Este publicat anual inventarul pe site-ul instituţiei? ,,0,NULL,3,Da,
+39,Care este numărul de situaţii în care s-a achiziţionat cadoul? ,,0,1,3,2,10
+40,Care este valoarea cadourilor achiziţionate? ,Lei,0,1,3,2,10000
+41,Care este valoarea totală a cadourilor primite? ,Lei,0,1,3,2,10000
+42,Care este valoarea bunurilor valorificate? ,Lei,0,1,3,2,100000
+43,Care este numărul de declaraţii de abţinere? ,,0,1,4,2,100
+44,Care este numărul de situaţii în care superiorul ierarhic a dispus înlocuirea persoanei aflată în situaţia de potenţial conflict de interese? ,,0,1,4,2,10
+45,Care este numărul de sesizări primite de instituţie de la terţe persoane cu privire la existenţa unui conflict de interese? ,,0,1,4,2,100
+46,Care este numărul de decizii ANI prin care s-a constatat starea de conflict de interese?,,0,1,4,2,15
+47,Care este numărul de sesizări ale parchetului privind posibila săvârşire a infracţiunii de conflicte de interese? ,,0,1,4,2,20
+48,Care este numărul de rechizitorii privind săvârşirea infracţiunii de conflicte de interese?,,0,1,4,2,20
+49,Care este numărul de condamnări privind săvârşirea infracţiunii de conflicte de interese?,,0,1,4,2,20
+50,Care este gradul de cunoaştere de către angajaţi a normelor privind conflictul de interese?,%,0,1,4,0,100
+51,Care este numărul de activităţi de formare? ,,0,1,4,2,5
+52,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare profesională? ,,0,1,4,5,50
+53,Care este numărul proceduri de achiziție analizate?,,0,1,4,2,100
+54,Care este numărul de avertismente de integritate emise,,0,1,4,2,15
+55,Care este numărul de conflicte de interese prevenite? ,,0,1,4,2,10
+56,Care este numărul de şedinţe de consultare,,0,1,5,2,10
+57,Care este numărul de angajaţi care au beneficiat de consiliere,,0,1,5,5,50
+58,Care este numărul de speţe? ,,0,1,4,2,100
+59,"Prezentați, pe scurt, tipologiile de dileme etice ",,100,NULL,5,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
+60,Care este gradul de cunoaştere de către angajaţi a normelor privind consilierul etic? (chestionar de evaluare) ,%,0,1,5,0,100
+61,Care este gradul de popularizare a rolului consilierului de etică? ,%,0,1,5,0,100
+62,Care este numărul de activităţi de formare?,,0,1,5,2,10
+63,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare profesională? ,,0,1,5,5,50
+64,Care este numărul de persoane aflate în stare de incompatibilitate?,,0,1,6,5,50
+65,Care este numărul de sesizări ale ANI formulate de către instituţie? ,,0,1,6,2,20
+66,Care este numărul de sesizări primite de instituţie de la terţe persoane cu privire la existenţa unei incompatibilităţi? ,,0,1,6,2,100
+67,Care este numărul de decizii ale ANI cu privire la constatarea unor incompatibilităţi,,0,1,6,2,20
+68,Care este numărul de decizii confirmate de instanță? ,,0,1,6,2,10
+69,Care este numărul de măsuri administrative adoptate pentru înlăturarea cauzelor sau circumstanţelor care au favorizat încălcarea normelor privind incompatibilităţile? ,,0,1,6,2,15
+70,Care este gradul de cunoaştere de către angajaţi a normelor privind conflictul de interese? ,,0,1,6,0,100
+71,Care este numărul de activităţi de formare? ,,0,1,6,2,10
+72,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare profesională? ,,0,1,6,5,50
+73,Care este numărul de proiecte de acte normative adoptate?,,0,1,7,2,30
+74,Care este numărul de anunţuri publice privind proiectele de acte normative? ,,0,1,7,0,100
+75,"Care este numărul de recomandări transmise de societatea civilă în procesul de transparență decizională asigurat pentru inițierea, modificarea sau completarea unor acte normative?",,0,1,7,0,30
+76,Care este gradul de acceptare şi preluare al recomandărilor formulate de societatea civilă cu privire la proiectele de acte normative supuse consultării publice? ,%,0,1,7,0,100
+77,Care este numărul de proiecte de acte normative modificate în urma procesului de consultare? ,,0,1,7,2,10
+78,"Care este numărul de propuneri, sugestii sau opinii preluate în forma finală a actului normativ? ",,0,1,7,0,10
+79,"Care este numărul de răspunsuri la propunerile, sugestiile sau opiniile nepreluate? ",,0,1,7,0,10
+80,Care este numărul de şedinţe publice organizate la inițiativa instituției? ,,0,1,7,0,10
+81,Care este numărul de participanţi la şedinţele publice?,,0,1,7,2,50
+82,Care este numărul de cetățeni înscriși în baza de date a instituției pentru a fi informați în legătură cu proiectele de acte normative?,,0,1,7,5,50
+83,Care este numărul de organizații neguvernamentale înscrise în baza de date a instituției pentru a fi informate în legătură cu proiectele de acte normative? ,,0,1,7,5,50
+84,Care este numărul de ședințe publice organizate la solicitarea societății civile?,,0,1,7,2,10
+85,"Care este numărul de minute publicate, realizate la ședințele publice?",,0,1,7,2,10
+86,Care este numărul de plângeri în justiţie privind nerespectarea prevederilor legale de către instituţie? ,,0,1,7,2,30
+87,Care este numărul de sancţiuni dispuse pentru încălcarea obligaţiilor legale,,0,1,7,2,30
+88,"Prezentați, pe scurt, tipul sancţiunilor dispuse pentru încălcarea obligaţiilor legale ",,100,NULL,7,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
+89,Care este numărul de activităţi de pregătire profesională a personalului din administraţia publică? ,,0,1,7,2,20
+90,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare profesională? ,,0,1,7,5,50
+91,Care este numărul de rapoarte anuale privind transparența decizională disponibile pe site-ul instituției? ,,0,1,7,2,40
+92,Care este numărul de părți interesate înscrise în Registrul Unic al Transparenței Intereselor la nivelul Guvernului României? ,,0,1,7,2,100
+93,Care este numărul de domenii în care s-au înscris părți interesate în Registrului Unic al Transparenței Intereselor? ,,0,1,7,2,20
+94,Care este numărul de utilizatori ai platformei consultare.gov.ro? ,,0,1,7,2,500000
+95,"Care este numărul de întâlniri raportate în RUTI de către factorii de decizie vizați de registru, din administrația publică?",,0,1,7,2,50
+96,Care este numărul de seturi de date publicate în format deschis pe platforma data.gov.ro? ,,0,1,8,2,50
+97,Care este numărul de solicitări de informaţii de interes public primite? ,,0,1,8,2,40
+98,Care este numărul de răspunsuri comunicate în termenul legal? ,,0,1,8,2,50
+99,"Care este numărul de răspunsuri formulate cu întârziere, faţă de termenul legal? ",,0,1,8,2,20
+100,Care este numărul de solicitări de informaţii de interes public la care nu s-a răspuns? ,,0,1,8,2,20
+101,Care este numărul de reclamaţii administrative? ,,0,1,8,2,40
+102,Care este numărul de reclamaţii administrative soluţionate favorabil? ,,0,1,8,2,10
+103,Care este numărul de plângeri în instanţă? ,,0,1,8,2,10
+104,"Care este numărul de hotărâri judecătorești definitive şi irevocabile pronunțate în favoarea petentului, ca urmare a plângerilor având ca obiect comunicarea de informații de interes public? ",,0,1,8,2,5
+105,Care este numărul de sancţiuni dispuse pentru încălcarea obligaţiilor legale? ,,0,1,8,2,7
+106,"Prezentați, pe scurt, tipul sancţiunilor dispuse pentru încălcarea obligaţiilor legale ",,140,NULL,8,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
+107,Care este numărul de activităţi de pregătire profesională a personalului din administraţia publică? ,,0,1,8,2,15
+108,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare profesională? ,,0,1,8,5,50
+109,care este numărul de măsuri interne luate pentru îmbunătățirea procesului de comunicare a informațiilor de interes public? ,,0,1,8,2,10
+110,"Prezentați, pe scurt, tipul măsurilor interne luate pentru îmbunătățirea procesului de comunicare a informațiilor de interes public ",,200,NULL,8,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
+111,Care este numărul de UAT-uri care au implementat Memorandumul privind creșterea transparenței și standardizarea afișării informațiilor de interes public? ,,0,1,8,5,1000
+112,Care este numărul de instituții publice cuprinse în platforma transparență.gov.ro ?,,0,1,8,30000,40000
+113,Există raportul de implementare a Legii nr. 544/2001 pentru ultimul an?,,0,NULL,8,Da,
+114,Care este numărul de rapoarte anuale de activitate disponibile pe site-ul instituției? ,,0,1,8,5000,10000
+115,Care este numărul de sesizări? ,,0,1,9,30000,60000
+116,Care este numărul normelor încălcate (structurate sub forma unui Compendiu)? ,,0,1,9,10,30
+117,"Prezentați, pe scurt, tipul normelor încălcate ",,200,NULL,9,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
+118,Care este numărul de regulamente interne armonizate cu prevederile legislative? ,,0,1,9,2,30
+119,Care este numărul de instituţii în care există persoane special desemnate pentru a primi sesizările avertizorilor de integritate? ,,0,1,9,2,3000
+120,Care este numărul de instituţii în care există implementat un mecanism cu privire la protecţia avertizorilor de integritate? ,,0,1,9,2,1000
+121,"Care este numărul de măsuri administrative adoptate pentru înlăturarea cauzelor sau circumstanţelor care au favorizat încălcarea normelor, diferenţiat pe tipologii? ",,0,1,9,2,100
+122,Care este numărul de situaţii de represalii la locul de munca,,0,1,9,2,1000
+123,Care este numărul de plângeri depuse in instanţă? ,,0,1,9,10000,30000
+124,Care este numărul de situaţii în care au fost acordate compensaţii avertizorilor de integritate? ,,0,1,9,1000,5000
+125,Care este numărul de activităţi de pregătire profesională a personalului din administraţia publică? ,,0,1,9,100,1000
+126,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare profesională? ,,0,1,9,10000,50000
+127,Care este numărul de persoane desemnate cu repartizarea aleatorie a cauzelor/sarcinilor de serviciu? ,,0,1,10,100,1000
+128,"Care este numărul de nereguli apărute în sistemul de distribuire aleatorie, diferenţiat pe tipologii? ",,0,1,10,100,200
+129,Care este numărul de măsuri luate de preşedintele instanţei/conducătorul instituţiei pentru remedierea neregulilor constatate? ,,0,1,10,2,30
+130,Care este numărul de regulamente interne care prevăd procedura monitorizării situaţiilor de pantouflage?,,0,1,11,2,10
+131,"Care este numărul de instituţii în care există implementat un mecanism cu privire la monitorizarea situaţiilor de pantouflage, inclusiv prin desemnarea unor persoane cu atribuţii speciale în acest sens? ",,0,1,11,10000,50000
+132,Care este numărul de persoane care au desfăşurat activităţi de monitorizare şi control cu privire la societăţi comerciale şi care au ieşit din corpul funcţionarilor publici? ,,0,1,11,100,1000
+133,"Care este numărul de persoane care îşi desfăşoară activitatea/ dau consultanţă în cadrul regiilor autonome, societăţilor comerciale ori în alte unităţi cu scop lucrativ din sectorul public, în termenul de 3 ani după ieşirea din corpul funcţionarilor publici (dintre acele persoane care au interdicţie conform legii)? ",,0,1,11,100,1000
+134,Care este numărul de măsuri adoptate pentru remedierea situaţiilor de pantouflage? ,,0,1,11,10,20
+135,Care sunt tipurile de măsuri adoptate pentru remedierea situaţiilor de pantouflage? ,,140,NULL,11,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
+136,Care este numărul de încălcări ale prevederilor art. 13 alin (1) constatate?,,0,1,11,100,300
+137,Care este numărul de solicitări către instanţa de judecată pentru anularea contractului de finanţare în caz de încălcare a art. 13 alin. (1)? ,,0,1,11,1000,5000
+138,Care este numărul de sancţiuni aplicate de către instanţe?,,0,1,11,100,500
+139,"Care este numărul de societăţi comerciale în care îşi desfăşoară activitatea persoane care au derulat anterior activităţi de monitorizare şi control şi care intră sub incidenţa art. 13 alin.(1), diferenţiat pe domenii majore de activitate? ",,0,1,11,2000,5000
+140,Care este numărul de funcţii sensibile şi funcţiile considerate ca fiind expuse la corupţie identificate și inventariate? ,,0,1,12,10000,30000
+141,Care este numărul de persoane cărora li s-a aplicat principiul rotației personalului? ,,0,1,12,100000,900000
+142,Care este numărul măsuri de control adecvate şi suficiente  pentru administrarea şi gestionarea funcţiilor sensibile? ,,0,1,12,2,100

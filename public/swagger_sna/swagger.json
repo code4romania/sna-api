@@ -139,6 +139,10 @@
                 "type": "integer",
                 "description": "id of step/category"
               },
+              "stepName": {
+                "type": "string",
+                "description": "name of category"
+              },
               "indicators": {
                 "type": "array",
                 "items": {
@@ -203,6 +207,10 @@
         "stepId": {
           "type": "integer",
           "description": "id of step/category"
+        },
+        "stepName": {
+          "type": "string",
+          "description": "name of category"
         },
         "indicators": {
           "type": "array",
@@ -594,6 +602,94 @@
         }
       }
     },
+    "/steps": {
+      "get": {
+        "summary": "Get all steps/categories",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Token",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "The list of questions steps/categories, their full name and the indicators associated with them\n",
+        "tags": [
+          "Steps"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of steps",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "stepId": {
+                    "type": "integer",
+                    "description": "id of step/category"
+                  },
+                  "stepName": {
+                    "type": "string",
+                    "description": "name of category"
+                  },
+                  "indicators": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "indicatorId": {
+                          "type": "integer",
+                          "description": "id of indicator"
+                        },
+                        "values": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "year": {
+                                "type": "integer",
+                                "description": "year of the value"
+                              },
+                              "value": {
+                                "type": "integer",
+                                "description": "numeric representation"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request."
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/answers/{institutionId}/{questionId}": {
       "get": {
         "summary": "Get an institution's answer to a question.",
@@ -811,6 +907,10 @@
                         "stepId": {
                           "type": "integer",
                           "description": "id of step/category"
+                        },
+                        "stepName": {
+                          "type": "string",
+                          "description": "name of category"
                         },
                         "indicators": {
                           "type": "array",

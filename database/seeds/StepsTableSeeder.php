@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Indicator;
+use App\Step;
 
-class IndicatorsTableSeeder extends Seeder
+class StepsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -33,7 +33,7 @@ class IndicatorsTableSeeder extends Seeder
         ];
         $id = 0;
         foreach($indicators as $name) {
-            $indicator = new Indicator();
+            $indicator = new Step();
             $indicator->id = $id;
             $indicator->name = $name;
             $indicator->save();

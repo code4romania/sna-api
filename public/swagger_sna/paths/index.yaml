@@ -132,6 +132,32 @@
         description: Unexpected error
         schema:
           $ref: ../definitions/Error.yaml
+/steps:
+  get:
+    summary: Get all steps/categories
+    parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+    description: |
+      The list of questions steps/categories, their full name and the indicators associated with them
+    tags:
+      - Steps
+    responses:
+      200:
+        description: An array of steps
+        schema:
+          type: array
+          items:
+            $ref: ../definitions/Step.yaml
+      400:
+        description: Bad request.
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
 /answers/{institutionId}/{questionId}:
   get:
     summary: Get an institution's answer to a question.

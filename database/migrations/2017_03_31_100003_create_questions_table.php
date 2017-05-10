@@ -25,7 +25,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('question_step')->unsigned();
             $table->timestamps();
 
-            $table->foreign('question_step')->references('id')->on('indicators');
+            $table->foreign('question_step')->references('id')->on('steps');
         });
     }
 

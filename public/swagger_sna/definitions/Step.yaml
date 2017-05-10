@@ -3,6 +3,9 @@ properties:
   stepId:
     type: integer
     description: id of step/category
+  stepName:
+    type: string
+    description: name of category
   indicators:
     type: array
     items:

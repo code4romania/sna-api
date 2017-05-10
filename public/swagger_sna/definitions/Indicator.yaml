@@ -1,8 +1,9 @@
 type: object
 properties:
-  id:
+  indicatorId:
     type: integer
-    description: id of the indicator
-  name:
-    type: string
-    description: name of the indicator
+    description: id of indicator
+  values:
+    type: array
+    items:
+      $ref: YearValue.yaml

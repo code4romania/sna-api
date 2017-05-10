@@ -132,7 +132,7 @@
         description: Unexpected error
         schema:
           $ref: ../definitions/Error.yaml
-/answer/{institutionId}/{questionId}:
+/answers/{institutionId}/{questionId}:
   get:
     summary: Get an institution's answer to a question.
     parameters:
@@ -210,6 +210,35 @@
         description: Unexpected error
         schema:
           $ref: ../definitions/Error.yaml
+/answers/{institutionType}:
+  get:
+    summary: Get all institutions answers to all the questions.
+    parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token
+        type: string
+        required: true
+      - name: institutionType
+        in: path
+        description: Type of the institution - anticorruption, ministry or county
+        type: string
+        required: true
+    description: |
+      Gets the answers for all the institutions, steps and years.
+    tags:
+      - Answers
+    responses:
+      200:
+        description: Answers institutions
+        schema:
+          type: array
+          items:
+            $ref: ../definitions/AnswersInstitution.yaml
+      default:
+        description: Unexpected error
+        schema:
+          $ref: ../definitions/Error.yaml
 # /answer:
 #   post:
 #     summary: Post an answer for a question
@@ -229,7 +258,6 @@
 #         description: The answer for the question
 #         type: string
 #         required: true
-
 #     description: |
 #       Posts an answer to a question
 #     tags:

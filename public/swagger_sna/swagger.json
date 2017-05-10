@@ -142,34 +142,6 @@
               "stepName": {
                 "type": "string",
                 "description": "name of category"
-              },
-              "indicators": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "indicatorId": {
-                      "type": "integer",
-                      "description": "id of indicator"
-                    },
-                    "values": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "year": {
-                            "type": "integer",
-                            "description": "year of the value"
-                          },
-                          "value": {
-                            "type": "integer",
-                            "description": "numeric representation"
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
               }
             }
           }
@@ -211,34 +183,6 @@
         "stepName": {
           "type": "string",
           "description": "name of category"
-        },
-        "indicators": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "indicatorId": {
-                "type": "integer",
-                "description": "id of indicator"
-              },
-              "values": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "year": {
-                      "type": "integer",
-                      "description": "year of the value"
-                    },
-                    "value": {
-                      "type": "integer",
-                      "description": "numeric representation"
-                    }
-                  }
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -614,7 +558,7 @@
             "required": true
           }
         ],
-        "description": "The list of questions steps/categories, their full name and the indicators associated with them\n",
+        "description": "The list of questions steps/categories and their full name \n",
         "tags": [
           "Steps"
         ],
@@ -633,34 +577,6 @@
                   "stepName": {
                     "type": "string",
                     "description": "name of category"
-                  },
-                  "indicators": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "indicatorId": {
-                          "type": "integer",
-                          "description": "id of indicator"
-                        },
-                        "values": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "year": {
-                                "type": "integer",
-                                "description": "year of the value"
-                              },
-                              "value": {
-                                "type": "integer",
-                                "description": "numeric representation"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
                   }
                 }
               }
@@ -911,34 +827,6 @@
                         "stepName": {
                           "type": "string",
                           "description": "name of category"
-                        },
-                        "indicators": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "indicatorId": {
-                                "type": "integer",
-                                "description": "id of indicator"
-                              },
-                              "values": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "year": {
-                                      "type": "integer",
-                                      "description": "year of the value"
-                                    },
-                                    "value": {
-                                      "type": "integer",
-                                      "description": "numeric representation"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
                         }
                       }
                     }

@@ -6,7 +6,3 @@ properties:
   stepName:
     type: string
     description: name of category
-  indicators:
-    type: array
-    items:
-      $ref: Indicator.yaml

@@ -14,8 +14,18 @@ class SignUpController extends Controller
     public function signUp(SignUpRequest $request, JWTAuth $JWTAuth)
     {
         $user = new User($request->all());
-        if(!$user->save()) {
-            throw new HttpException(500);
+        try {
+            if(!$user->save()) {
+                throw new HttpException(500);
+            }
+        } catch (\Exception $e) {
+            if($e->getCode() == 23000) {
+                return response()->json([
+                        'status' => 'error',
+                        'code' => 23000,
+                        'message' => 'User already exists!'
+                ], 500);
+            }
         }
 
         if(!Config::get('boilerplate.sign_up.release_token')) {

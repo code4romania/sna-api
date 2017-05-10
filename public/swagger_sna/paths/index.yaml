@@ -142,7 +142,7 @@
         type: string
         required: true
     description: |
-      The list of questions steps/categories, their full name and the indicators associated with them
+      The list of questions steps/categories and their full name 
     tags:
       - Steps
     responses:

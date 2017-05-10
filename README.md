@@ -80,4 +80,5 @@ I currently made this project for personal purposes. I decided to share it here 
 Use `php artisan jwt:generate --show` to generate a JWT_SECRET and put it in the .env file like so: JWT_SECRET=generatedJWTsecrettoputinfile
 
 Swagger API Spec is in http://{snawebsite.ext}/swagger/dist/index.html
+Swagger generation: sudo swagger bundle -r -o swagger.json index.yaml
 Swagger file to edit is in public swagger_yaml

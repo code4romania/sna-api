@@ -13,8 +13,16 @@ $api->version('v1', function (Router $api) {
         $api->post('recovery', 'App\\Api\\V1\\Controllers\\ForgotPasswordController@sendResetEmail');
         $api->post('reset', 'App\\Api\\V1\\Controllers\\ResetPasswordController@resetPassword');
     });
+    
+    $api->group(['prefix' => 'v1/'], function(Router $api) {
+        $api->get('questions', 'App\\Api\\V1\\Controllers\\QuestionsController@listAll');
+        $api->get('questions/{step}', 'App\\Api\\V1\\Controllers\\QuestionsController@getByStep');
+        $api->get('counties', 'App\\Api\\V1\\Controllers\\CountiesController@listAll');
+        $api->get('institutions/{type}', 'App\\Api\\V1\\Controllers\\InstitutionsController@getByType');
+        $api->get('steps', 'App\\Api\\V1\\Controllers\\StepsController@listAll');
+    });
 
-    $api->group(['middleware' => 'jwt.auth', 'prefix' => 'v1/'], function(Router $api) {
+    /* $api->group(['middleware' => 'jwt.auth', 'prefix' => 'v1/'], function(Router $api) {
         $api->get('questions', 'App\\Api\\V1\\Controllers\\QuestionsController@listAll');
         $api->get('questions/{step}', 'App\\Api\\V1\\Controllers\\QuestionsController@getByStep');
         $api->get('counties', 'App\\Api\\V1\\Controllers\\CountiesController@listAll');
@@ -35,7 +43,7 @@ $api->version('v1', function (Router $api) {
                 ]);
             }
         ]);
-    });
+    }); */
 
     $api->get('v1/hello', function() {
         return response()->json([

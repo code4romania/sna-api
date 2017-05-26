@@ -25,17 +25,17 @@ class InstitutionsTableSeeder extends Seeder
           $institutionDB->name = $institution;
 
           if (strpos($institution, 'Primaria') !== false) {
-            $institutionDB->institution_type_id = 3;
+            $institutionDB->type_id = 3;
             $county = County::where('code', '=', $institutionCountyCode)->first();
             $institutionDB->county_id = $county->id;
           }
           elseif (strpos($institution, 'Ministerul ') !== false || strpos($institution, 'Ministrul ') !== false) { //see id 107 @judete
-            $institutionDB->institution_type_id = 1;
+            $institutionDB->type_id = 1;
             $county = County::where('code', '=', 'MI')->first();
             $institutionDB->county_id = $county->id;
           }
           else {
-            $institutionDB->institution_type_id = 2;
+            $institutionDB->type_id = 2;
             $county = County::where('code', '=', 'AI')->first();
             $institutionDB->county_id = $county->id;
           }

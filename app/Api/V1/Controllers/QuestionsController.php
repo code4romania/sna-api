@@ -17,9 +17,9 @@ class QuestionsController extends Controller
         ], 200);
     }
 
-    public function getByStep($step, QuestionTransformer $transformer) {
-        if (filter_var($step, FILTER_VALIDATE_INT) && (int)$step >= 0 ) {
-            $question = Question::where('question_step', $step)->get();
+    public function getByStep($category, QuestionTransformer $transformer) {
+        if (filter_var($category, FILTER_VALIDATE_INT) && (int)$category >= 0 ) {
+            $question = Question::where('question_step', $category)->get();
 
             return response()->json([
                     'data' => $transformer->transformCollection($question->all())

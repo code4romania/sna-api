@@ -137,11 +137,7 @@
             "properties": {
               "stepId": {
                 "type": "integer",
-                "description": "id of step/category"
-              },
-              "stepName": {
-                "type": "string",
-                "description": "name of category"
+                "description": "id of category"
               },
               "indicators": {
                 "type": "array",
@@ -201,16 +197,12 @@
         }
       }
     },
-    "Step": {
+    "Category": {
       "type": "object",
       "properties": {
         "stepId": {
           "type": "integer",
-          "description": "id of step/category"
-        },
-        "stepName": {
-          "type": "string",
-          "description": "name of category"
+          "description": "id of category"
         },
         "indicators": {
           "type": "array",
@@ -387,75 +379,6 @@
     },
     "/indicators": {
       "get": {
-        "summary": "Get all indicators",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "JWT Token",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "description": "The list of indicators\n",
-        "tags": [
-          "Indicators"
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of indicators",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "indicatorId": {
-                    "type": "integer",
-                    "description": "id of indicator"
-                  },
-                  "values": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "year": {
-                          "type": "integer",
-                          "description": "year of the value"
-                        },
-                        "value": {
-                          "type": "integer",
-                          "description": "numeric representation"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "fields": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/questions": {
-      "get": {
         "summary": "Get all questions",
         "parameters": [
           {
@@ -523,14 +446,14 @@
         }
       }
     },
-    "/questions/{step}": {
+    "/indicators/{category}": {
       "get": {
-        "summary": "Get all questions corresponding to one specific step",
+        "summary": "Get all questions corresponding to one specific category",
         "parameters": [
           {
-            "name": "step",
+            "name": "category",
             "in": "path",
-            "description": "Currently, the questions are divided in 12 steps. Requests with {step} gt 12 will return an empty array",
+            "description": "Currently, the questions are divided in 12 categories. Requests with {category} gt 12 will return an empty array",
             "type": "integer",
             "required": true
           },
@@ -542,7 +465,7 @@
             "required": true
           }
         ],
-        "description": "The list of questions to answer corresponding to one specific step\n",
+        "description": "The list of questions to answer corresponding to one specific category\n",
         "tags": [
           "Questions"
         ],
@@ -579,7 +502,7 @@
             }
           },
           "400": {
-            "description": "Bad request. {step} should be a positive integer"
+            "description": "Bad request. {category} should be a positive integer"
           },
           "default": {
             "description": "Unexpected error",
@@ -602,9 +525,9 @@
         }
       }
     },
-    "/steps": {
+    "/categories": {
       "get": {
-        "summary": "Get all steps/categories",
+        "summary": "Get all categories",
         "parameters": [
           {
             "name": "Authorization",
@@ -614,13 +537,13 @@
             "required": true
           }
         ],
-        "description": "The list of questions steps/categories and their full name \n",
+        "description": "The list of questions categories and their full name \n",
         "tags": [
-          "Steps"
+          "Categories"
         ],
         "responses": {
           "200": {
-            "description": "An array of steps",
+            "description": "An array of Categories",
             "schema": {
               "type": "array",
               "items": {
@@ -628,11 +551,7 @@
                 "properties": {
                   "stepId": {
                     "type": "integer",
-                    "description": "id of step/category"
-                  },
-                  "stepName": {
-                    "type": "string",
-                    "description": "name of category"
+                    "description": "id of category"
                   },
                   "indicators": {
                     "type": "array",
@@ -690,159 +609,6 @@
         }
       }
     },
-    "/answers/{institutionId}/{questionId}": {
-      "get": {
-        "summary": "Get an institution's answer to a question.",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "JWT Token",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "institutionId",
-            "in": "path",
-            "description": "The id of the institution or county the answer is for.",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "questionId",
-            "in": "path",
-            "description": "The in of the question the answer is for.",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "year",
-            "in": "query",
-            "description": "The year the answer is for. If no year is set then the current one is used.",
-            "type": "integer",
-            "required": false
-          }
-        ],
-        "description": "Gets the answer for a question and institution for a specific year.\n",
-        "tags": [
-          "Answers"
-        ],
-        "responses": {
-          "200": {
-            "description": "Answer",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "questionId": {
-                  "type": "integer",
-                  "description": "id of the question the answer is for"
-                },
-                "value": {
-                  "type": "integer",
-                  "description": "value of the answer"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "fields": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/answers/{institutionId}/{step}": {
-      "get": {
-        "summary": "Get an institution's answer to all the questions in a step.",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "JWT Token",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "institutionId",
-            "in": "path",
-            "description": "The id of the institution or county the answers are for.",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "step",
-            "in": "path",
-            "description": "The number of the step the answers are for.",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "year",
-            "in": "query",
-            "description": "The year the answers are for. If no year is set then the current one is used.",
-            "type": "integer",
-            "required": false
-          }
-        ],
-        "description": "Gets the answers for the questions and institution for a specific year and step.\n",
-        "tags": [
-          "Answers"
-        ],
-        "responses": {
-          "200": {
-            "description": "Answers",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "questionId": {
-                    "type": "integer",
-                    "description": "id of the question the answer is for"
-                  },
-                  "value": {
-                    "type": "integer",
-                    "description": "value of the answer"
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "fields": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/answers/{institutionType}": {
       "get": {
         "summary": "Get all institutions answers to all the questions.",
@@ -862,7 +628,7 @@
             "required": true
           }
         ],
-        "description": "Gets the answers for all the institutions, steps and years.\n",
+        "description": "Gets the answers for all the institutions, categories and years.\n",
         "tags": [
           "Answers"
         ],
@@ -906,11 +672,7 @@
                       "properties": {
                         "stepId": {
                           "type": "integer",
-                          "description": "id of step/category"
-                        },
-                        "stepName": {
-                          "type": "string",
-                          "description": "name of category"
+                          "description": "id of category"
                         },
                         "indicators": {
                           "type": "array",

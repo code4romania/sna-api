@@ -15,11 +15,12 @@ $api->version('v1', function (Router $api) {
     });
     
     $api->group(['prefix' => 'v1/'], function(Router $api) {
-        $api->get('questions', 'App\\Api\\V1\\Controllers\\QuestionsController@listAll');
-        $api->get('questions/{step}', 'App\\Api\\V1\\Controllers\\QuestionsController@getByStep');
+        $api->get('indicators', 'App\\Api\\V1\\Controllers\\QuestionsController@listAll');
+        $api->get('indicators/{category}', 'App\\Api\\V1\\Controllers\\QuestionsController@getByStep');
         $api->get('counties', 'App\\Api\\V1\\Controllers\\CountiesController@listAll');
         $api->get('institutions/{type}', 'App\\Api\\V1\\Controllers\\InstitutionsController@getByType');
-        $api->get('steps', 'App\\Api\\V1\\Controllers\\StepsController@listAll');
+        $api->get('categories', 'App\\Api\\V1\\Controllers\\StepsController@listAll');
+        $api->get('answers/{institutionType}', 'App\\Api\\V1\\Controllers\\AnswersController@listByInstitutionType');
     });
 
     /* $api->group(['middleware' => 'jwt.auth', 'prefix' => 'v1/'], function(Router $api) {

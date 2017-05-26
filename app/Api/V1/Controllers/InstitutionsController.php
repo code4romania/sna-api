@@ -14,7 +14,7 @@ class InstitutionsController extends Controller
       $institution_types = InstitutionType::get()->pluck('institution_type')->all();
       if (in_array($type, $institution_types)) {
         $typeId = InstitutionType::where('institution_type', $type)->get()->pluck('id');
-        $institutions = Institution::where('institution_type_id', $typeId)->get();
+        $institutions = Institution::where('type_id', $typeId)->get();
         return response()->json([
                 'data' => $transformer->transformCollection($institutions->all())
         ], 200);

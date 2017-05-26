@@ -14,4 +14,4 @@ properties:
     description: step or category of indicators 
     type: array
     items:
-      $ref: Step.yaml
+      $ref: Category.yaml

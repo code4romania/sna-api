@@ -3,14 +3,13 @@
 namespace App\Api\V1\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Api\V1\Transformers\AnswerTransformer;
 use App\Institution;
 use App\InstitutionType;
 use App\Api\V1\DataBuilders\Answers\InstitutionTypeSelector;
 
 class AnswersController extends Controller
 {
-    public function listByInstitutionType($institutionType, AnswerTransformer $transformer)
+    public function listByInstitutionType($institutionType)
     {
         $answersBuilder = InstitutionTypeSelector::getByInstitution($institutionType);
         $institutionType = InstitutionType::where('institution_type', $institutionType)->first();

@@ -19,6 +19,6 @@ class AnswersController extends Controller
             $output[] = $answersBuilder->getAnswersFor($institution);
         }
 
-        return response()->json($output, 200);
+        return response()->json($output, 200)->header('Access-Control-Allow-Origin', '*');
     }
 }

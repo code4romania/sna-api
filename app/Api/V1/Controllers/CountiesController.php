@@ -14,6 +14,6 @@ class CountiesController extends Controller
 
         return response()->json([
                 'data' => $transformer->transformCollection($county->all())
-        ], 200);
+        ], 200)->header('Access-Control-Allow-Origin', '*');
     }
 }

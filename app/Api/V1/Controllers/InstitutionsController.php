@@ -17,9 +17,10 @@ class InstitutionsController extends Controller
         $institutions = Institution::where('type_id', $typeId)->get();
         return response()->json([
                 'data' => $transformer->transformCollection($institutions->all())
-        ], 200);
+        ], 200)->header('Access-Control-Allow-Origin', '*');
       } else {
-        return response()->json(['message' => '/{type} should be anticorruption, ministry or county '], 400);
+        return response()->json(['message' => '/{type} should be anticorruption, ministry or county '], 400)
+            ->header('Access-Control-Allow-Origin', '*');
       }
     }
 }

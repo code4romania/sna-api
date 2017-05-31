@@ -13,6 +13,6 @@ class StepsController extends Controller
 
         return response()->json([
                 'data' => $step->all()
-        ], 200);
+        ], 200)->header('Access-Control-Allow-Origin', '*');
     }
 }

@@ -14,7 +14,7 @@ class QuestionsController extends Controller
 
         return response()->json([
                 'data' => $transformer->transformCollection($question->all())
-        ], 200);
+        ], 200)->header('Access-Control-Allow-Origin', '*');
     }
 
     public function getByStep($category, QuestionTransformer $transformer) {

@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Institution;
 use App\InstitutionType;
 use App\Api\V1\DataBuilders\Answers\InstitutionTypeSelector;
+use App\Api\V1\CORS\Headers;
 
 class AnswersController extends Controller
 {
+    use Headers;
+    
     public function listByInstitutionType($institutionType)
     {
         $answersBuilder = InstitutionTypeSelector::getByInstitution($institutionType);
@@ -19,6 +22,6 @@ class AnswersController extends Controller
             $output[] = $answersBuilder->getAnswersFor($institution);
         }
 
-        return response()->json($output, 200)->header('Access-Control-Allow-Origin', '*');
+        return response()->json($output, 200, $this->getHeaders());
     }
 }

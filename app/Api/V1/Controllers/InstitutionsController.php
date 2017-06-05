@@ -6,9 +6,12 @@ use App\Api\V1\Transformers\InstitutionTransformer;
 use App\Http\Controllers\Controller;
 use App\Institution;
 use App\InstitutionType;
+use App\Api\V1\CORS\Headers;
 
 class InstitutionsController extends Controller
 {
+    use Headers;
+    
     public function getByType($type, InstitutionTransformer $transformer)
     {
       $institution_types = InstitutionType::get()->pluck('institution_type')->all();
@@ -17,10 +20,9 @@ class InstitutionsController extends Controller
         $institutions = Institution::where('type_id', $typeId)->get();
         return response()->json([
                 'data' => $transformer->transformCollection($institutions->all())
-        ], 200)->header('Access-Control-Allow-Origin', '*');
+        ], 200, $this->getHeaders());
       } else {
-        return response()->json(['message' => '/{type} should be anticorruption, ministry or county '], 400)
-            ->header('Access-Control-Allow-Origin', '*');
+        return response()->json(['message' => '/{type} should be anticorruption, ministry or county '], 400, $this->getHeaders());
       }
     }
 }

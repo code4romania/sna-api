@@ -15,7 +15,7 @@ class CreateCountiesAggregationView extends Migration
     {
         DB::statement(
             "CREATE VIEW code4_aggregated_counties AS
-            SELECT code4_counties.id AS county_id, code4_questions.id AS question_id, truncate(avg(code4_answers.value), 2) AS agregated_answer_value, YEAR(code4_answers.created_at) AS year
+            SELECT code4_counties.id AS county_id, code4_questions.id AS question_id, truncate(avg(code4_answers.value), 2) AS aggregated_answer_value, YEAR(code4_answers.created_at) AS year
             FROM code4_answers, code4_institutions, code4_counties, code4_questions
             WHERE code4_answers.institution_id = code4_institutions.id
             AND code4_institutions.county_id = code4_counties.id

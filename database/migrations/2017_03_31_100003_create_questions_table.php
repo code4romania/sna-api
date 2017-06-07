@@ -18,7 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->mediumText('question_text');
             $table->integer('required')->nullable();
             $table->integer('type');
-            $table->string('code');
+            $table->string('code')->default('');
             $table->string('unit_of_measurement', 100);
             $table->integer('max_length');
             $table->integer('answer_is_numeric')->nullable();

@@ -14,7 +14,6 @@ abstract class Builder {
         );
         $steps = Step::select('id', 'name')->where('id', '>', 0)->get();
         $output['answers'] = $this->getStepsOutput($steps, $institution->id);
-        
         return $output;
     }
     

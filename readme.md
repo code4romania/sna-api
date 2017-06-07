@@ -1,4 +1,4 @@
-## Laravel API Boilerplate (JWT Edition)
+## SNA-API (JWT Edition)
 
 Laravel API Boilerplate is a "starter kit" you can use to build your first API in seconds. As you can easily imagine, it is built on top of the awesome Laravel Framework. This version is built on Laravel 5.4!
 
@@ -75,3 +75,10 @@ Thanks to the _barryvdh/laravel-cors_ package, you can handle CORS easily. Just 
 ## Feedback
 
 I currently made this project for personal purposes. I decided to share it here to help anyone with the same needs. If you have any feedback to improve it, feel free to make a suggestion, or open a PR!
+
+## CODE4
+Use `php artisan jwt:generate --show` to generate a JWT_SECRET and put it in the .env file like so: JWT_SECRET=generatedJWTsecrettoputinfile
+
+Swagger API Spec is in http://{snawebsite.ext}/swagger/dist/index.html
+Swagger generation: sudo swagger bundle -r -o swagger.json index.yaml
+Swagger file to edit is in public swagger_yaml

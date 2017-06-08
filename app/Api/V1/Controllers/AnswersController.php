@@ -3,6 +3,7 @@
 namespace App\Api\V1\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\AggregatedCounty;
 use App\County;
 use App\Institution;
 use App\InstitutionType;
@@ -21,9 +22,12 @@ class AnswersController extends Controller
                 $output[] = $answersBuilder->getAnswersFor($institution);
             }
         } else {
+            // am scos query-ul in afara pentru ca altfel s-ar fi executat pentru fiecare judet si ar fi durat super mult
+            // prin asta am redus timpul la jumatate
+            $aggregatedAnswers = AggregatedCounty::select('question_id', 'county_id', 'aggregated_answer_value', 'question_step', 'year')->get()->all();
             $counties = County::where('id', '<', '43')->get()->all();
             foreach ($counties as $county) {
-                $output[] = $answersBuilder->getAnswersFor($county);
+                $output[] = $answersBuilder->getAnswersForCounty($county, $aggregatedAnswers);
             }
         }
 

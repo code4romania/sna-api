@@ -15,14 +15,16 @@ class CreateCountiesAggregationView extends Migration
     {
         DB::statement(
             "CREATE VIEW code4_aggregated_counties AS
-            SELECT code4_counties.id AS county_id, code4_questions.id AS question_id, truncate(avg(code4_answers.value), 2) AS aggregated_answer_value, YEAR(code4_answers.created_at) AS year
+            SELECT code4_counties.id AS county_id, code4_questions.id AS question_id, truncate(avg(code4_answers.value), 2) AS aggregated_answer_value,
+                    YEAR(code4_answers.created_at) AS year, code4_questions.question_step AS question_step
             FROM code4_answers, code4_institutions, code4_counties, code4_questions
             WHERE code4_answers.institution_id = code4_institutions.id
             AND code4_institutions.county_id = code4_counties.id
             AND code4_answers.question_id = code4_questions.id
             AND code4_institutions.type_id = 3
             AND code4_questions.answer_is_numeric = 1
-            GROUP BY year, code4_counties.id, code4_questions.id"
+            GROUP BY year, code4_counties.id, code4_questions.id, code4_questions.question_step
+            ORDER BY county_id, year, question_step"
         );
     }
 

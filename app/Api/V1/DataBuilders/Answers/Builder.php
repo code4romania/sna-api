@@ -45,7 +45,7 @@ abstract class Builder {
         
     }
     
-    private function getAnswersOutput($answers) {
+    protected function getAnswersOutput($answers) {
         $output = array();
         foreach ($answers as $answer) {
             $output[] = array('value' => $answer->value,

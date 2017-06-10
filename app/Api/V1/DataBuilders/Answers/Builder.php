@@ -33,7 +33,7 @@ abstract class Builder {
         return $output;
     }
     
-    private function getQuestionsOutput($questions, $institutionId) {
+    protected function getQuestionsOutput($questions, $institutionId) {
         $output = array();
         foreach ($questions as $question) {
             $questionOutput = array('indicatorId' => $question->id, 'values' => array());

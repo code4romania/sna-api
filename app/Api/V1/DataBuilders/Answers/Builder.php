@@ -4,22 +4,19 @@ namespace App\Api\V1\DataBuilders\Answers;
 use App\Answer;
 use App\Step;
 use App\Question;
+use App\Api\V1\Institutions\Institution;
 
 abstract class Builder {
 
-    public function getAnswersFor($institution) {
-        $output = array('institutionId' => $institution->id,
-                        'name' => $institution->name,
+    public function getAnswersFor(Institution $institution) {
+        $output = array('institutionId' => $institution->getId(),
+                        'name' => $institution->getName(),
                         'answers' => array()
         );
         $steps = Step::select('id', 'name')->where('id', '>', 0)->get();
-        $output['answers'] = $this->getStepsOutput($steps, $institution->id);
+        $output['answers'] = $this->getStepsOutput($steps, $institution->getId());
         
         return $output;
-    }
-    
-    protected function getYearFromDate($dateStr) {
-        return date('Y', strtotime($dateStr));
     }
     
     private function getStepsOutput($steps, $institutionId) {
@@ -33,11 +30,11 @@ abstract class Builder {
         return $output;
     }
     
-    protected function getQuestionsOutput($questions, $institutionId) {
+    private function getQuestionsOutput($questions, $institutionId) {
         $output = array();
         foreach ($questions as $question) {
             $questionOutput = array('indicatorId' => $question->id, 'values' => array());
-            $answers = Answer::where('question_id', $question->id)->where('institution_id', $institutionId)->get();
+            $answers = $this->getAnswerRowsFor($institutionId, $question->id);
             $questionOutput['values'] = $this->getAnswersOutput($answers);
             $output[] = $questionOutput;
         }
@@ -45,13 +42,22 @@ abstract class Builder {
         
     }
     
-    protected function getAnswersOutput($answers) {
+    protected function getAnswerRowsFor($institutionId, $questionId) {
+        return Answer::where('question_id', $questionId)->where('institution_id', $institutionId)
+               ->get();
+    }
+    
+    private function getAnswersOutput($answers) {
         $output = array();
         foreach ($answers as $answer) {
             $output[] = array('value' => $answer->value,
-                              'year' => $this->getYearFromDate($answer->updated_at));
+                    'year' => $this->getYearFor($answer));
         }
         return $output;
+    }
+    
+    protected function getYearFor($answer) {
+        return date('Y', strtotime($answer->updated_at));
     }
     
 }

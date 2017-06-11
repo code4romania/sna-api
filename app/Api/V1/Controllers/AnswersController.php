@@ -5,8 +5,9 @@ namespace App\Api\V1\Controllers;
 use App\Http\Controllers\Controller;
 use App\Institution;
 use App\InstitutionType;
-use App\Api\V1\DataBuilders\Answers\InstitutionTypeSelector;
+use App\Api\V1\DataBuilders\Answers\AnswersBuilderSelector;
 use App\Api\V1\CORS\Headers;
+use App\Api\V1\Institutions\InstitutionsProvider;
 
 class AnswersController extends Controller
 {
@@ -14,9 +15,8 @@ class AnswersController extends Controller
     
     public function listByInstitutionType($institutionType)
     {
-        $answersBuilder = InstitutionTypeSelector::getByInstitution($institutionType);
-        $institutionType = InstitutionType::where('institution_type', $institutionType)->first();
-        $institutions = Institution::where('type_id', $institutionType->id)->get();
+        $answersBuilder = AnswersBuilderSelector::getByInstitution($institutionType);
+        $institutions = InstitutionsProvider::getInstitutionsFor($institutionType);
         $output = array();
         foreach ($institutions as $institution) {
             $output[] = $answersBuilder->getAnswersFor($institution);

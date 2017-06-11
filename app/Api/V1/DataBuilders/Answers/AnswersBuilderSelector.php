@@ -2,7 +2,7 @@
 
 namespace App\Api\V1\DataBuilders\Answers;
 
-class InstitutionTypeSelector {
+class AnswersBuilderSelector {
 
     const MINISTRY_TYPE = 'ministry';
     const COUNTY_TYPE = 'county';
@@ -17,7 +17,7 @@ class InstitutionTypeSelector {
             case static::MINISTRY_TYPE: 
                 return new CentralInstitutionBuilder($institution);
             case static::COUNTY_TYPE:
-                return new TownHallInstitutionBuilder($institution);
+                return new CountyInstitutionBuilder($institution);
             case static::ANTICURRUPTION:
                 return new CentralInstitutionBuilder($institution);
         }

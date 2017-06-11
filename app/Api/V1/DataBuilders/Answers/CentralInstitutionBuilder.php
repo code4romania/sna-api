@@ -14,11 +14,11 @@ class CentralInstitutionBuilder extends Builder {
         
     protected function getEmployeesFor($institution) {
         $employeesQuestion = Question::where('code', 'EMPLOYEES')->first();
-        $employeesAnswers = $institution->answers->where('question_id', $employeesQuestion->id)->all();
+        $employeeAnswers = $institution->answers->where('question_id', $employeesQuestion->id)->all();
         $employeesOutput = array();
-        foreach ($employeesAnswers as $employeesAnswer) {
-            $employeesOutput[] = array('value' => $employeesAnswer->value, 
-                                       'year' => $this->getYearFromDate($employeesAnswer->updated_at));
+        foreach ($employeeAnswers as $employeeAnswer) {
+            $employeesOutput[] = array('value' => $employeeAnswer->value, 
+                                       'year' => $this->getYearFor($employeeAnswer));
         }
         return $employeesOutput;
     }

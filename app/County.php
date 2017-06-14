@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Api\V1\Institutions\Institution;
+use App\Api\V1\Institutions\Institution as InstitutionInterface;
 
-class County extends Model implements Institution
+class County extends Model implements InstitutionInterface
 {
 	protected $fillable = ['name', 'code'];
 	

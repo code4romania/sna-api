@@ -3,10 +3,11 @@
 namespace App\Api\V1\DataBuilders\Answers;
 
 use App\Question;
+use App\Api\V1\Institutions\Institution;
 
 class CentralInstitutionBuilder extends Builder {
     
-    public function getAnswersFor($institution) {
+    public function getAnswersFor(Institution $institution) {
         $output = parent::getAnswersFor($institution);    
         $output['employees'] = $this->getEmployeesFor($institution);
         return $output;

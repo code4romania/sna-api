@@ -50,14 +50,14 @@ abstract class Builder {
     private function getAnswersOutput($answers) {
         $output = array();
         foreach ($answers as $answer) {
-            $output[] = array('value' => $answer->value,
+            $output[] = array('value' => is_numeric($answer->value)? floatval($answer->value): $answer->value,
                     'year' => $this->getYearFor($answer));
         }
         return $output;
     }
     
     protected function getYearFor($answer) {
-        return date('Y', strtotime($answer->updated_at));
+        return intval(date('Y', strtotime($answer->updated_at)));
     }
     
 }

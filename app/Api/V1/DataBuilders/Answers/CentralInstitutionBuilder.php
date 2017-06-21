@@ -18,7 +18,7 @@ class CentralInstitutionBuilder extends Builder {
         $employeeAnswers = $institution->answers->where('question_id', $employeesQuestion->id)->all();
         $employeesOutput = array();
         foreach ($employeeAnswers as $employeeAnswer) {
-            $employeesOutput[] = array('value' => $employeeAnswer->value, 
+            $employeesOutput[] = array('value' => intval($employeeAnswer->value), 
                                        'year' => $this->getYearFor($employeeAnswer));
         }
         return $employeesOutput;

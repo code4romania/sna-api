@@ -20,7 +20,8 @@ class CountiesTableSeeder extends Seeder
                 County::create([
                     'id' => $row[0],
                     'name' => $row[1],
-                    'code' =>  $row[2]
+                    'code' =>  $row[2],
+                    'population' => $row[3]
                 ]);
             }
         }

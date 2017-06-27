@@ -9,9 +9,10 @@ class CountyTransformer extends Transformer
     public function transform($county)
     {
         return [
-                'id' => $county->id,
-                'name' => $county->name,
-                'code' => $county->code
+            'id' => $county->id,
+            'name' => $county->name,
+            'code' => $county->code,
+            'population' => $county->population
         ];
     }
 }

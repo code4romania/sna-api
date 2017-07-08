@@ -4,6 +4,7 @@ namespace App\Api\V1\DataBuilders\Answers;
 
 use App\AnswersCounty;
 use App\County;
+use App\CountyPopulation;
 use App\Api\V1\Institutions\Institution;
 
 class CountyInstitutionBuilder extends Builder {
@@ -16,7 +17,8 @@ class CountyInstitutionBuilder extends Builder {
     
     protected function getEmployeesFor($institution) {
         $county = County::where('id', $institution->getId())->first();
-        return $county->population;
+        $employees = $this->getYearlyPopulation($county->id);
+        return $employees;
     }
     
     protected function getAnswerRowsFor($institutionId, $questionId) {
@@ -26,5 +28,15 @@ class CountyInstitutionBuilder extends Builder {
     
     protected function getYearFor($answer) {
         return $answer->year;
+    }
+
+    private function getYearlyPopulation($countyId) {
+        $population = array();
+        $rows = CountyPopulation::where('county_id', $countyId)->get()->all();
+        foreach ($rows as $row) {
+            $population[] = array('value' => $row->population,
+                                'year' => $row->year);
+        }
+        return $population;
     }
 }

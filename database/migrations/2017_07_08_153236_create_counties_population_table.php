@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCountiesTable extends Migration
+class CreateCountiesPopulationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateCountiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('counties', function (Blueprint $table) {
+        Schema::create('counties_population', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('code');
+            $table->integer('county_id')->unsigned();
+            $table->string('population');
+            $table->string('year');
             $table->timestamps();
+
+            $table->foreign('county_id')->references('id')->on('counties');
         });
     }
 
@@ -28,6 +31,6 @@ class CreateCountiesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('counties');
+        Schema::drop('counties_population');
     }
 }

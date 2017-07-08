@@ -21,7 +21,6 @@ class CountiesTableSeeder extends Seeder
                     'id' => $row[0],
                     'name' => $row[1],
                     'code' =>  $row[2],
-                    'population' => $row[3]
                 ]);
             }
         }

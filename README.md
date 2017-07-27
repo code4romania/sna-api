@@ -79,6 +79,11 @@ I currently made this project for personal purposes. I decided to share it here 
 ## CODE4
 Use `php artisan jwt:generate --show` to generate a JWT_SECRET and put it in the .env file like so: JWT_SECRET=generatedJWTsecrettoputinfile
 
+Swagger tool used https://www.npmjs.com/package/swagger-cli
 Swagger API Spec is in http://{snawebsite.ext}/swagger/dist/index.html
 Swagger generation: sudo swagger bundle -r -o swagger.json index.yaml
 Swagger file to edit is in public swagger_yaml
+
+Data import:
+ - this command imports data from sna format to code4 format: php artisan db:import-sna 2017
+ - this command formats data for the counties since live processing would be too long: php artisan db:process-county-answers 2017

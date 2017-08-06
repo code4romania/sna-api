@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\ImportFromOldDbCommand::class
+        Commands\ImportFromOldDbCommand::class,
+        Commands\ProcessCountyAnswers::class
     ];
 
     /**

@@ -86,6 +86,6 @@ Swagger file to edit is in public swagger_yaml
 
 Data import:
  - this command imports data from sna format to code4 format: php artisan db:import-sna 2017
- - this command formats data for the counties since live processing would be too long: {php artisan db:process-county-answers 2017}
+ - this command formats data for the counties since live processing would be too long: php artisan db:process-county-answers 2017
  
  Commands should be run in this order.

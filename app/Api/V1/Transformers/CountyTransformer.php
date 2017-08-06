@@ -13,8 +13,8 @@ class CountyTransformer extends Transformer
         $countyPopulation = array();
 
         foreach($countyPopulationRows as $row) {
-            $countyPopulation[] = array('population' => $row->population,
-                                        'year' => $row->year);
+            $countyPopulation[] = array('population' => intval($row->population),
+                                        'year' => intval($row->year));
         }
 
         return [

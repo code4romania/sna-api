@@ -107,7 +107,7 @@ id,question_text,unit_of_measurement,max_length,answer_is_numeric,question_step,
 106,"Prezentați, pe scurt, tipul sancţiunilor dispuse pentru încălcarea obligaţiilor legale ",,140,NULL,8,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
 107,Care este numărul de activităţi de pregătire profesională a personalului din administraţia publică? ,,0,1,8,2,15
 108,Care este numărul de persoane care au fost instruite prin intermediul acţiunilor de formare profesională? ,,0,1,8,5,50
-109,care este numărul de măsuri interne luate pentru îmbunătățirea procesului de comunicare a informațiilor de interes public? ,,0,1,8,2,10
+109,Care este numărul de măsuri interne luate pentru îmbunătățirea procesului de comunicare a informațiilor de interes public? ,,0,1,8,2,10
 110,"Prezentați, pe scurt, tipul măsurilor interne luate pentru îmbunătățirea procesului de comunicare a informațiilor de interes public ",,200,NULL,8,"Lorem ipsum dolor sit amet, mel ad libris impetus, invenire rationibus ex vis, eu enim insolens elaboraret nec. No per insolens eleifend cotidieque. ",
 111,Care este numărul de UAT-uri care au implementat Memorandumul privind creșterea transparenței și standardizarea afișării informațiilor de interes public? ,,0,1,8,5,1000
 112,Care este numărul de instituții publice cuprinse în platforma transparență.gov.ro ?,,0,1,8,30000,40000

@@ -17,9 +17,11 @@ class QuestionsTableSeeder extends Seeder
         
         foreach ($questions as $question) {
             $questionDB = new Question();
+            $questionDB->id = $question->id_intrebare;
             $questionDB->question_text = $question->intrebare;
             $questionDB->required = $question->req;
             $questionDB->type = $question->type;
+            $questionDB->code = $questionDB->id == 7 ? 'EMPLOYEES' : '';
             $questionDB->unit_of_measurement = $question->valoare;
             $questionDB->max_length = intval($question->char);
             $questionDB->answer_is_numeric = $question->numeric;

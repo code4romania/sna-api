@@ -18,18 +18,15 @@ class StepsTableSeeder extends Seeder
             'Declararea averilor',
             'Declararea cadourilor',
             'Conflicte de interese',
-            'Consilier de etică/consilier pentru integritate',
+            'Consilier de etică',
             'Incompatibilități',
-            'Transparență în pricesul decizional',
+            'Transparență în procesul decizional',
             'Acces la informații de interes public',
             'Protecția avertizorului de integritate',
-            'Distribuirea aleatorie a sarcinilor de serviciu',
-            'Interdicții după încheierea angajării în cadrul instituțiilor publice',
-            'Registru abateri conduită ale demnitarilor, funcționarilor publici ' .
-                'și personalului contractual, cu atribuții în domeniul protecției ' .
-                'intereselor financiare ale UE',
-            'Cod de conduită al personalului cu atribuții de control în domeniul' .
-                'protecției intereselor financiare ale UE',
+            'Distribuirea aleatorie a dosarelor/sarcinilor de serviciu',
+            'Interdicții după încheierea angajării în cadrul instituțiilor publice ' .
+                '(Pantouflage)',
+            'Funcții sensibile',
         ];
         $id = 0;
         foreach($indicators as $name) {

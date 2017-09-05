@@ -34,8 +34,8 @@ class CountyInstitutionBuilder extends Builder {
         $population = array();
         $rows = CountyPopulation::where('county_id', $countyId)->get()->all();
         foreach ($rows as $row) {
-            $population[] = array('value' => $row->population,
-                                'year' => $row->year);
+            $population[] = array('value' => intval($row->population),
+                                'year' => intval($row->year));
         }
         return $population;
     }

@@ -11,9 +11,12 @@ class CountiesController extends Controller
 {
     use Headers;
     
+    //TODO: this is a horrible, horrible thing I'm doing here and have to refactor.
+    private $excludeList = array('AI', 'MI');
+    
     public function listAll(CountyTransformer $transformer)
     {
-        $county = County::get();
+        $county = County::whereNotIn('code', $this->excludeList)->get();
 
         return response()->json([
                 'data' => $transformer->transformCollection($county->all())

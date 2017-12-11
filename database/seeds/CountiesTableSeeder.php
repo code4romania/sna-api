@@ -24,16 +24,6 @@ class CountiesTableSeeder extends Seeder
                 ]);
             }
         }
-        
-        County::create([
-                'name' => 'Anti corruption',
-                'code' =>  'AI'
-        ]);
-        
-        County::create([
-                'name' => 'Ministry',
-                'code' =>  'MI'
-        ]);
     }
 
     private function getCounties()

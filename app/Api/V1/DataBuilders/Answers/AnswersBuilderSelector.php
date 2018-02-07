@@ -15,11 +15,11 @@ class AnswersBuilderSelector {
     public static function getByInstitution($type) {
         switch ($type) {
             case static::MINISTRY_TYPE: 
-                return new CentralInstitutionBuilder($institution);
+                return new CentralInstitutionBuilder();
             case static::COUNTY_TYPE:
-                return new CountyInstitutionBuilder($institution);
+                return new CountyInstitutionBuilder();
             case static::ANTICURRUPTION:
-                return new CentralInstitutionBuilder($institution);
+                return new CentralInstitutionBuilder();
         }
     }
     

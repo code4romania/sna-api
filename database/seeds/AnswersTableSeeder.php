@@ -24,9 +24,9 @@ class AnswersTableSeeder extends Seeder
                 $answerDB->institution_id = $institution->id;
                 $answerDB->user_id = 1;
                 if(intval($answer[4]) == 1) {
-                    $answerDB->answer = rand(intval($answer[6]), intval($answer[7]));
+                    $answerDB->value = rand(intval($answer[6]), intval($answer[7]));
                 } else {
-                    $answerDB->answer = $answer[6];
+                    $answerDB->value = $answer[6];
                 }
                 $answerDB->save();
             }

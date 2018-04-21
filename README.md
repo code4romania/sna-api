@@ -1,91 +1,90 @@
-## SNA-API (JWT Edition)
+# Strategia Națională Anticorupție: Data Visualization - API 
 
-Laravel API Boilerplate is a "starter kit" you can use to build your first API in seconds. As you can easily imagine, it is built on top of the awesome Laravel Framework. This version is built on Laravel 5.4!
+[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/sna-api.svg?style=for-the-badge)]() [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/sna-api.svg?style=for-the-badge)]() [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-It is built on top of three big guys:
+This portal makes the implementation of the 2016-2020 National Anticorruption Strategy more transparent for everybody involved, from citizens to stakeholders. The information and data sets (corruption indicators, integrity warnings, ethics counselling) developed through this new strategy will be accessible to everyone in an easily parseable and explainable format. As the new anticorruption strategy emphasises education and prevention, citizen involvement in fighting corruption starts with this portal.
 
-* JWT-Auth - [tymondesigns/jwt-auth](https://github.com/tymondesigns/jwt-auth)
-* Dingo API - [dingo/api](https://github.com/dingo/api)
-* Laravel-CORS [barryvdh/laravel-cors](http://github.com/barryvdh/laravel-cors)
+[Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Contributing](#contributing) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
 
-What I made is an integration of these three packages and a setup of some authentication and credentials recovery methods.
+## Built With
 
-## Installation
+### Programming languages
 
-1. run `composer create-project francescomalatesta/laravel-api-boilerplate-jwt myNextProject`;
-2. have a coffee, nothing to do here;
+php
 
-Once the project creation procedure will be completed, run the `php artisan migrate` command to install the required tables.
+### Platforms
 
-## Usage
+Laravel 5.4
 
-I wrote a couple of articles on this project that explain how to write an entire sample application with this boilerplate. They cover the older version of this boilerplate, but all the concepts are the same. You can find them on Sitepoint:
+### Package managers
 
-Just be aware that some options in the `config/boilerplate.php` file are changed, so take a look to it.
+Composer
 
-* [How to Build an API-Only JWT-Powered Laravel App](https://www.sitepoint.com/how-to-build-an-api-only-jwt-powered-laravel-app/)
-* [How to Consume Laravel API with AngularJS](https://www.sitepoint.com/how-to-consume-laravel-api-with-angularjs/)
+### Database technology & provider
 
-**WARNING:** the articles are old and Laravel 5.1 related. Just use them as "inspiration". Even without updated tutorials, they should be enough. 
+MySQL
 
-## Main Features
+## Repos and projects
 
-### A Ready-To-Use Authentication Controllers
+https://github.com/code4romania/sna-api
 
-You don't have to worry about authentication and password recovery anymore. I created four controllers you can find in the `App\Api\V1\Controllers` for those operations.
+related to https://github.com/code4romania/sna-client
 
-For each controller there's an already setup route in `routes/api.php` file:
+## Deployment
 
-* `POST api/auth/login`, to do the login and get your access token;
-* `POST api/auth/signup`, to create a new user into your application;
-* `POST api/auth/recovery`, to recover your credentials;
-* `POST api/auth/reset`, to reset your password after the recovery;
+### Installation process
 
-### A Separate File for Routes
+   - install `composer` with your package manager or from https://getcomposer.org/download/
+   - open a terminal and go to the project; once there, run:
+       ```
+       composer install
+       ```
+   - create an `.env` file with:
+       ```
+       cp .env.example .env
+       ```
+   - generate a jwt secret with:
+       ```
+       php artisan jwt:generate --show
+       ```
+   - put the secret in the `.env` file as variable `JWT_SECRET`
+   - run database migrations:
+       ```
+       php artisan migrate
+       ```
+   - seed the database with the needed data:
+       ```
+       php artisan db:seed
+       ```
+   - configure the server to run the app
 
-All the API routes can be found in the `routes/api.php` file. This also follow the Laravel 5.3 convention.
+### Software dependencies
 
-### Secrets Generation
+   Listed in the `composer.json` file of the project.
 
-Every time you create a new project starting from this repository, the _php artisan jwt:generate_ command will be executed.
+## Contributing
 
-## Configuration
+If you would like to contribute to one of our repositories, first identify the scale of what you would like to contribute. If it is small (grammar/spelling or a bug fix) feel free to start working on a fix. If you are submitting a feature or substantial code contribution, please discuss it with the team and ensure it follows the product roadmap. 
 
-As I already said before, this boilerplate is based on _dingo/api_ and _tymondesigns/jwt-auth_ packages. So, you can find many informations about configuration <a href="https://github.com/tymondesigns/jwt-auth/wiki/Configuration" target="_blank">here</a> and <a href="https://github.com/dingo/api/wiki/Configuration">here</a>.
-
-However, there are some extra options that I placed in a _config/boilerplate.php_ file:
-
-* `sign_up.release_token`: set it to `true` if you want your app release the token right after the sign up process;
-* `reset_password.release_token`: set it to `true` if you want your app release the token right after the password reset process;
-
-There are also the validation rules for every action (login, sign up, recovery and reset). Feel free to customize it for your needs.
-
-## Creating Endpoints
-
-You can create endpoints in the same way you could to with using the single _dingo/api_ package. You can <a href="https://github.com/dingo/api/wiki/Creating-API-Endpoints" target="_blank">read its documentation</a> for details. After all, that's just a boilerplate! :)
-
-However, I added some example routes to the `routes/api.php` file to give you immediately an idea.
-
-## Cross Origin Resource Sharing
-
-If you want to enable CORS for a specific route or routes group, you just have to use the _cors_ middleware on them.
-
-Thanks to the _barryvdh/laravel-cors_ package, you can handle CORS easily. Just check <a href="https://github.com/barryvdh/laravel-cors" target="_blank">the docs at this page</a> for more info.
+* Fork it (https://github.com/code4romania/sna-api)
+* Create your feature branch (git checkout -b feature/fooBar)
+* Commit your changes (git commit -am 'Add some fooBar')
+* Push to the branch (git push origin feature/fooBar)
+* Create a new Pull Request
 
 ## Feedback
 
-I currently made this project for personal purposes. I decided to share it here to help anyone with the same needs. If you have any feedback to improve it, feel free to make a suggestion, or open a PR!
+* Request a new feature on GitHub.
+* Vote for popular feature requests.
+* File a bug in GitHub Issues.
+* Email us with other feedback contact@code4.ro
 
-## CODE4
-Use `php artisan jwt:generate --show` to generate a JWT_SECRET and put it in the .env file like so: JWT_SECRET=generatedJWTsecrettoputinfile
+## License
 
-Swagger tool used https://www.npmjs.com/package/swagger-cli
-Swagger API Spec is in http://{snawebsite.ext}/swagger/dist/index.html
-Swagger generation: sudo swagger bundle -r -o swagger.json index.yaml
-Swagger file to edit is in public swagger_yaml
+This project is licensed under the MPL 2.0 License - see the [LICENSE](LICENSE) file for details
 
-Data import:
- - this command imports data from sna format to code4 format: php artisan db:import-sna 2017
- - this command formats data for the counties since live processing would be too long: php artisan db:process-county-answers 2017
- 
- Commands should be run in this order.
+## About Code4Ro
+
+Started in 2016, Code for Romania is a civic tech NGO, official member of the Code for All network. We have a community of over 500 volunteers (developers, ux/ui, communications, data scientists, graphic designers, devops, it security and more) who work pro-bono for developing digital solutions to solve social problems. #techforsocialgood. If you want to learn more details about our projects [visit our site](https://www.code4.ro/en/) or if you want to talk to one of our staff members, please e-mail us at contact@code4.ro.
+
+Last, but not least, we rely on donations to ensure the infrastructure, logistics and management of our community that is widely spread accross 11 timezones, coding for social change to make Romania and the world a better place. If you want to support us, [you can do it here](https://code4.ro/en/donate/).

@@ -73,7 +73,7 @@ class ImportFromOldDbCommand extends Command
 
     private function setSnaAvailableInstitutionsFor($year)
     {
-        $this->snaAvailableInstitutions = Raspunsuri::select('id_user', 'raspuns')->where('an', '=', $year)
+        $this->snaAvailableInstitutions = Raspunsuri::select('id_user', 'raspuns')->where('an', '=', 2016)
             ->where('id_intrebare', '=', 1)
             ->get();
         foreach ($this->snaAvailableInstitutions as $snaAvailableInstitution) {

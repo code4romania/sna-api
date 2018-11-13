@@ -1,6 +1,6 @@
 # Strategia Națională Anticorupție: Data Visualization - API 
 
-[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/sna-api.svg?style=for-the-badge)]() [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/sna-api.svg?style=for-the-badge)]() [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/sna-api.svg?style=for-the-badge)](https://github.com/code4romania/sna-api/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/sna-api.svg?style=for-the-badge)](https://github.com/code4romania/sna-api/commits/master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 This portal makes the implementation of the 2016-2020 National Anticorruption Strategy more transparent for everybody involved, from citizens to stakeholders. The information and data sets (corruption indicators, integrity warnings, ethics counselling) developed through this new strategy will be accessible to everyone in an easily parseable and explainable format. As the new anticorruption strategy emphasises education and prevention, citizen involvement in fighting corruption starts with this portal.
 
